@@ -19,7 +19,7 @@
     --brand-peach: #FFB6C1;
     --brand-cream: #FFF5F8; */
 
-    /*  --brand-dark: #1F6F5F; 
+     /* --brand-dark: #1F6F5F; 
     --brand-gray: #2FA084;
     --brand-peach: #6FCF97; 
     --brand-cream: #EEEEEE; */
@@ -483,6 +483,10 @@ footer.footer-modern {
     text-align: left;
 }
 
+.centering {
+    align-items: center;
+}
+
 /* VARIASI CONTAINER & BANNER */
 
 /* Banner Besar (Split Teks & Gambar) */
@@ -682,4 +686,200 @@ textarea.form-control {
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* =========================================
+   14. STRUKTUR HALAMAN UTAMA (SPLIT LAYOUT)
+   ========================================= */
+/* Membagi area menjadi kiri (teks) dan kanan (konten) */
+.section-split {
+    display: flex;
+    flex-wrap: wrap; /* Otomatis turun ke bawah jika di layar HP */
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.section-left {
+    flex: 1;
+    min-width: 250px;
+}
+
+.section-right {
+    flex: 3; /* Sisi kanan mengambil porsi lebih besar */
+    min-width: 300px;
+}
+
+/* =========================================
+   15. ELEMEN KHUSUS HOMEPAGE
+   ========================================= */
+/* Baris Statistik (Angka & Teks) di bawah Banner */
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--brand-peach);
+    gap: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: var(--brand-dark);
+    margin: 0;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    color: var(--brand-gray);
+    margin: 0;
+    max-width: 100px;
+    line-height: 1.2;
+}
+
+/* =========================================
+   KARTU KOTAK PERSEGI (DENGAN IKON & PANAH)
+   ========================================= */
+.card-square {
+    background-color: var(--brand-dark);
+    color: var(--white);
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Memastikan semua elemen rata ke kiri */
+    transition: var(--transition);
+    height: 100%; /* Memastikan tinggi kartu seragam di dalam grid */
+}
+
+.card-square:hover {
+    transform: translateY(-5px);
+    background-color: var(--brand-gray);
+}
+
+/* Pengaturan Ikon Utama di Sudut Kiri Atas */
+.card-square-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.5rem; /* Memberikan jarak ke angka di bawahnya */
+    object-fit: contain; /* Memastikan ikon tidak berantakan rasionya */
+}
+
+/* Pengaturan Angka Besar */
+.card-square h3 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin: 0 0 1rem 0;
+    line-height: 1;
+}
+
+/* Tombol Lonjong (Pills) untuk Topik Populer */
+.pill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.pill {
+    border: 1px solid var(--brand-gray);
+    border-radius: 50px;
+    padding: 0.4rem 1.2rem;
+    color: var(--brand-gray);
+    font-size: 0.9rem;
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pill:hover, .pill.active {
+    background-color: var(--brand-gray);
+    color: var(--white);
+}
+
+/* =========================================
+   16. SLIDER KARTU HORIZONTAL (TANPA JS)
+   ========================================= */
+.card-slider {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto; /* Kunci utama: memunculkan scrollbar horizontal jika konten melebihi layar */
+    flex-wrap: nowrap; /* Memaksa kartu berbaris ke samping, mencegahnya turun ke bawah */
+    padding-bottom: 1.5rem; /* Memberikan ruang agar bayangan (shadow) kartu tidak terpotong */
+    
+    /* Fitur modern: Membuat pergeseran berhenti rapi di setiap kartu (seperti efek swipe di HP) */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Memastikan kartu di dalam slider tidak menyusut dan lebarnya konsisten */
+.card-slider > * {
+    flex: 0 0 auto; /* Kartu tidak boleh membesar atau menyusut secara otomatis */
+    width: 320px; /* Kamu bisa menyesuaikan lebar kartu di sini */
+    scroll-snap-align: start; /* Titik henti kartu saat digeser (rata kiri) */
+}
+
+/* (Opsional) Mempercantik tampilan Scrollbar agar tidak terlihat kaku */
+.card-slider::-webkit-scrollbar {
+    height: 8px; /* Ketebalan scrollbar */
+}
+
+.card-slider::-webkit-scrollbar-track {
+    background: var(--brand-cream); 
+    border-radius: 10px;
+}
+
+.card-slider::-webkit-scrollbar-thumb {
+    background: var(--brand-peach); 
+    border-radius: 10px;
+}
+
+.card-slider::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-gray); 
+}
+
+/* =========================================
+   RADIO BUTTON BERGAYA TOMBOL (PILL/BOX)
+   ========================================= */
+/* Wadah untuk menyejajarkan tombol ke samping */
+.radio-btn-group {
+    display: flex;
+    gap: 1rem; /* Jarak antar tombol */
+    width: 100%;
+}
+
+/* 1. Sembunyikan lingkaran radio bawaan browser secara penuh */
+.radio-btn-input {
+    display: none; 
+}
+
+/* 2. Ubah label menjadi bentuk tombol bergaris luar (outline) */
+.radio-btn-label {
+    flex: 1; /* Membuat lebar tombol seimbang (dibagi rata) */
+    text-align: center;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid var(--white); /* Garis tepi warna putih */
+    border-radius: 8px; /* Sudut sedikit melengkung */
+    color: var(--white);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition); /* Animasi mulus bawaan kita */
+}
+
+/* 3. Efek saat label disorot (hover) */
+.radio-btn-label:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Efek terang transparan */
+}
+
+/* 4. Ajaibnya CSS: Ubah gaya label HANYA jika input di sebelahnya sedang diceklis */
+.radio-btn-input:checked + .radio-btn-label {
+    background-color: var(--white); /* Latar belakang menjadi putih penuh */
+    color: var(--brand-dark); /* Warna teks menjadi gelap */
+    font-weight: bold;
 }
