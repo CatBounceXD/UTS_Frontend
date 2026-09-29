@@ -1,0 +1,19 @@
+/* Penyesuaian khusus halaman Pusat Layanan Unggulan */
+.breadcrumb a {
+    color: var(--brand-gray);
+    transition: var(--transition);
+}
+
+.breadcrumb a:hover {
+    color: var(--brand-dark);
+}
+
+@media (max-width: 768px) {
+    .banner-split {
+        flex-direction: column;
+    }
+    
+    .banner-content {
+        padding: 1.5rem !important;
+    }
+}
