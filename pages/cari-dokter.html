@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cari Jadwal Praktek Dokter dan Buat Janji - Kelompok3Hospitals</title>
-    
-    <!-- Memanggil CSS Global -->
     <link rel="stylesheet" href="../assets/css/global.css">
     
-    <!-- CSS KHUSUS HALAMAN CARI DOKTER -->
     <style>
         .specialty-header-line {
             display: flex;
@@ -80,7 +77,6 @@
             transform: translateX(5px);
         }
 
-        /* Pesan jika dokter tidak ditemukan */
         #no-result-msg {
             display: none;
             text-align: center;
@@ -98,7 +94,6 @@
     <main>
         <div class="container">
             
-            <!-- SECTION 1: Form Pencarian -->
             <section class="animate-on-scroll">
                 <div class="text-center" style="margin-bottom: 2rem;">
                     <h1>Cari Jadwal Praktek Dokter dan Buat Janji</h1>
@@ -151,7 +146,6 @@
                 </article>
             </section>
 
-            <!-- SECTION 2: Cari Berdasarkan Spesialis -->
             <section class="animate-on-scroll">
                 <div class="specialty-header-line">Atau Cari Berdasarkan Spesialis</div>
 
@@ -214,7 +208,6 @@
                 </div>
             </section>
 
-            <!-- SECTION 3: Hasil Pencarian Dokter -->
             <section class="animate-on-scroll">
                 <h2 style="margin-bottom: 1.5rem;" id="hasil-title">Semua Dokter</h2>
                 
@@ -417,11 +410,8 @@
     </main>
 
     <div id="footer-placeholder"></div>
-
-    <!-- Memanggil Script Global -->
     <script src="../assets/js/global.js"></script>
     
-    <!-- JS KHUSUS HALAMAN CARI DOKTER -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const form = document.getElementById("search-form");
@@ -431,7 +421,6 @@
             const hasilTitle = document.getElementById("hasil-title");
             const spcLinks = document.querySelectorAll(".spc-link");
 
-            // Fungsi Utama Filter
             function filterDoctors(nameQuery, specQuery, locQuery) {
                 let visibleCount = 0;
 
@@ -445,24 +434,20 @@
                     const matchLoc = locQuery === "" || docLoc === locQuery;
 
                     if (matchName && matchSpec && matchLoc) {
-                        card.style.display = "flex"; // Sesuai dengan default display .card
+                        card.style.display = "flex";
                         visibleCount++;
                     } else {
                         card.style.display = "none";
                     }
                 });
 
-                // Tampilkan pesan jika tidak ada hasil
                 noResultMsg.style.display = visibleCount === 0 ? "block" : "none";
                 
-                // Ubah judul section hasil
                 hasilTitle.innerText = "Hasil Pencarian Dokter";
                 
-                // Scroll halus ke bagian hasil
                 hasilTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
-            // Event Submit pada Form
             form.addEventListener("submit", function(e) {
                 e.preventDefault();
                 const nama = document.getElementById("filter-nama").value;
@@ -472,25 +457,20 @@
                 filterDoctors(nama, spesialis, lokasi);
             });
 
-            // Event Klik pada Alfabet Spesialis
             spcLinks.forEach(link => {
                 link.addEventListener("click", function(e) {
                     e.preventDefault();
                     
-                    // Ambil data-filter dari link yang diklik
                     const selectedSpec = this.getAttribute("data-filter");
                     
-                    // Update dropdown form agar sinkron
                     document.getElementById("filter-spesialis").value = selectedSpec;
                     document.getElementById("filter-nama").value = "";
                     document.getElementById("filter-lokasi").value = "";
                     
-                    // Jalankan filter
                     filterDoctors("", selectedSpec, "");
                 });
             });
 
-            // Event Reset Form
             btnReset.addEventListener("click", function() {
                 form.reset();
                 doctorCards.forEach(card => {
