@@ -1,0 +1,87 @@
+/* HERO */
+
+.banner-split{
+    min-height:550px;
+}
+
+.banner-content{
+    justify-content:center;
+}
+
+.banner-content h2{
+    font-size:3rem;
+    margin-bottom:1rem;
+}
+
+.banner-content p{
+    max-width:550px;
+}
+
+.banner-image img{
+    height:550px;
+    object-fit:cover;
+}
+
+/* FAQ */
+
+.accordion{
+    max-width:900px;
+    margin:auto;
+}
+
+/* FORM */
+
+.card-dark .form-label{
+    color:white;
+}
+
+.card-dark .btn-outline{
+    width:100%;
+    color:white;
+    border-color:white;
+}
+
+.card-dark .btn-outline:hover{
+    background:white;
+    color:var(--brand-dark);
+}
+
+/* WHATSAPP */
+
+/*.whatsapp-floating{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    z-index:999;
+}
+
+.whatsapp-floating img{
+    width:65px;
+    transition:.3s;
+}
+
+.whatsapp-floating img:hover{
+    transform:scale(1.1);
+}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+    .banner-content{
+        padding:2rem;
+    }
+
+    .banner-content h2{
+        font-size:2rem;
+    }
+
+    .banner-split{
+        min-height:auto;
+    }
+
+    .banner-image img{
+        height:300px;
+    }
+
+}
