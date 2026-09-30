@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pusat Layanan Unggulan - Hospitals</title>
 
-    <!-- Path CSS disesuaikan karena file berada di dalam folder 'pages' -->
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/PusatLayananUnggulan.css">
 </head>
 <body>
 
-    <!-- Header Placeholder (Diisi otomatis oleh global.js) -->
     <div id="header-placeholder"></div>
 
     <main>
@@ -21,7 +19,6 @@
                 <a href="../index.html">Beranda</a> &gt; <span style="font-weight: 600; color: #333;">Pusat Layanan Unggulan</span>
             </nav>
 
-            <!-- BAGIAN 1: Banner Atas (Sisi Kiri Putih, Sisi Kanan Gambar Dokter) -->
             <section class="banner-split animate-on-scroll" style="background: #ffffff; color: #333333; margin-bottom: 2.5rem; border-radius: 12px; overflow: hidden; display: flex; flex-wrap: wrap;">
                 <div class="banner-content" style="flex: 1; min-width: 300px; padding: 3rem; display: flex; flex-direction: column; justify-content: center;">
                     <h1 style="font-size: 2.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.25;">
@@ -36,7 +33,6 @@
                 </div>
             </section>
 
-            <!-- BAGIAN 2: Banner Bawah (Sisi Kiri Gelap, Sisi Kanan Gambar Kursi Roda) -->
             <section class="banner-split animate-on-scroll" style="background: linear-gradient(to right, #000000, #1a1a1a); color: #ffffff; border-radius: 12px; overflow: hidden; display: flex; flex-wrap: wrap;">
                 <div class="banner-content" style="flex: 1; min-width: 300px; padding: 3rem; display: flex; flex-direction: column; justify-content: center;">
                     <span style="font-size: 0.85rem; color: #a0a0a0; margin-bottom: 0.75rem; display: block;">
@@ -59,16 +55,10 @@
         </div>
     </main>
 
-    <!-- Footer Placeholder (Diisi otomatis oleh global.js) -->
     <div id="footer-placeholder"></div>
-
-    <!-- Path JS disesuaikan karena file berada di dalam folder 'pages' -->
     <script src="../assets/js/global.js"></script>
-
-    <!-- Script penyesuaian pemanggilan header & footer dari sub-folder -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Memanggil header & footer yang berada di root folder
             loadComponent("header-placeholder", "../header.html");
             loadComponent("footer-placeholder", "../footer.html");
         });
