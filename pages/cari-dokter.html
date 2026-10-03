@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cari Jadwal Praktek Dokter dan Buat Janji - Kelompok3Hospitals</title>
+    <title>Cari Jadwal Praktek Dokter dan Buat Janji - Hospitals</title>
+    
+    <!-- Memanggil CSS Global -->
     <link rel="stylesheet" href="../assets/css/global.css">
     
+    <!-- CSS KHUSUS HALAMAN CARI DOKTER -->
     <style>
         .specialty-header-line {
             display: flex;
@@ -77,6 +80,7 @@
             transform: translateX(5px);
         }
 
+        /* Pesan jika dokter tidak ditemukan */
         #no-result-msg {
             display: none;
             text-align: center;
@@ -94,6 +98,7 @@
     <main>
         <div class="container">
             
+            <!-- SECTION 1: Form Pencarian -->
             <section class="animate-on-scroll">
                 <div class="text-center" style="margin-bottom: 2rem;">
                     <h1>Cari Jadwal Praktek Dokter dan Buat Janji</h1>
@@ -125,10 +130,10 @@
                                 <label class="form-label" for="filter-lokasi">Lokasi Rumah Sakit</label>
                                 <select id="filter-lokasi" class="form-control">
                                     <option value="">Semua Lokasi</option>
-                                    <option value="kebon jeruk">Kelompok3Hospitals Kebon Jeruk</option>
-                                    <option value="tb simatupang">Kelompok3Hospitals TB Simatupang</option>
-                                    <option value="mrccc">Kelompok3Hospitals Semanggi</option>
-                                    <option value="lippo village">Kelompok3Hospitals Lippo Village</option>
+                                    <option value="kebon jeruk">Hospitals Kebon Jeruk</option>
+                                    <option value="tb simatupang">Hospitals TB Simatupang</option>
+                                    <option value="mrccc">Hospitals Semanggi</option>
+                                    <option value="lippo village">Hospitals Lippo Village</option>
                                 </select>
                             </div>
 
@@ -146,6 +151,7 @@
                 </article>
             </section>
 
+            <!-- SECTION 2: Cari Berdasarkan Spesialis -->
             <section class="animate-on-scroll">
                 <div class="specialty-header-line">Atau Cari Berdasarkan Spesialis</div>
 
@@ -208,13 +214,14 @@
                 </div>
             </section>
 
+            <!-- SECTION 3: Hasil Pencarian Dokter (20 Dokter dengan data-specialty yang sinkron) -->
             <section class="animate-on-scroll">
                 <h2 style="margin-bottom: 1.5rem;" id="hasil-title">Semua Dokter</h2>
                 
                 <div class="card-grid" id="doctor-container">
                     <div id="no-result-msg">Maaf, tidak ada jadwal dokter yang sesuai dengan kriteria pencarian Anda.</div>
 
-                    <!-- Kardiologi -->
+                    <!-- 1. Jantung -->
                     <div class="card card-doctor" data-name="budi santoso" data-specialty="jantung" data-lokasi="kebon jeruk">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" alt="dr. Budi Santoso" class="doctor-avatar">
@@ -224,28 +231,13 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals Kebon Jeruk</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Kebon Jeruk</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Hari ini, 14:00 - 17:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Budi%20Santoso,%20Sp.JP&spesialis=Kardiologi%20(Jantung)&lokasi=Hospitals%20Kebon%20Jeruk&img=https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
 
-                    <div class="card card-doctor" data-name="antonius budi" data-specialty="jantung" data-lokasi="tb simatupang">
-                        <div class="doctor-header">
-                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" alt="dr. Antonius Budi" class="doctor-avatar">
-                            <div class="doctor-info">
-                                <h3>dr. Antonius Budi, Sp.JP</h3>
-                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Kardiologi (Jantung)</p>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals TB Simatupang</p>
-                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Rabu, 08:00 - 12:00</strong></p>
-                        </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
-                    </div>
-
-                    <!-- Neurologi -->
+                    <!-- 2. Saraf -->
                     <div class="card card-doctor" data-name="anita wijaya" data-specialty="saraf" data-lokasi="mrccc">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" alt="dr. Anita Wijaya" class="doctor-avatar">
@@ -255,13 +247,13 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals Semanggi</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Semanggi</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Besok, 09:00 - 12:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Anita%20Wijaya,%20Sp.N&spesialis=Neurologi%20(Saraf)&lokasi=Hospitals%20Semanggi&img=https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
 
-                    <!-- Ortopedi -->
+                    <!-- 3. Ortopedi -->
                     <div class="card card-doctor" data-name="hendra" data-specialty="ortopedi" data-lokasi="tb simatupang">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" alt="dr. Hendra" class="doctor-avatar">
@@ -271,44 +263,29 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals TB Simatupang</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals TB Simatupang</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Kamis, 10:00 - 14:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Hendra,%20Sp.OT&spesialis=Ortopedi%20(Tulang)&lokasi=Hospitals%20TB%20Simatupang&img=https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
 
-                    <!-- Pediatri / Anak -->
+                    <!-- 4. Anak -->
                     <div class="card card-doctor" data-name="andi pratama" data-specialty="anak" data-lokasi="lippo village">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=150&q=80" alt="dr. Andi Pratama" class="doctor-avatar">
                             <div class="doctor-info">
                                 <h3>dr. Andi Pratama, Sp.A</h3>
-                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Pediatri (Anak)</p>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Anak (Pediatri)</p>
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals Lippo Village</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Lippo Village</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Jumat, 08:00 - 11:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Andi%20Pratama,%20Sp.A&spesialis=Anak%20(Pediatri)&lokasi=Hospitals%20Lippo%20Village&img=https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
 
-                    <div class="card card-doctor" data-name="nadia shafira" data-specialty="anak" data-lokasi="mrccc">
-                        <div class="doctor-header">
-                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" alt="dr. Nadia Shafira" class="doctor-avatar">
-                            <div class="doctor-info">
-                                <h3>dr. Nadia Shafira, Sp.A</h3>
-                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Pediatri (Anak)</p>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals Semanggi</p>
-                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Senin, 16:00 - 20:00</strong></p>
-                        </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
-                    </div>
-
-                    <!-- Kebidanan & Kandungan -->
+                    <!-- 5. Kandungan -->
                     <div class="card card-doctor" data-name="siti aminah" data-specialty="kandungan" data-lokasi="kebon jeruk">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" alt="dr. Siti Aminah" class="doctor-avatar">
@@ -318,13 +295,13 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals Kebon Jeruk</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Kebon Jeruk</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Sabtu, 09:00 - 13:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Siti%20Aminah,%20Sp.OG&spesialis=Kebidanan%20&%20Kandungan&lokasi=Hospitals%20Kebon%20Jeruk&img=https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
 
-                    <!-- Penyakit Dalam -->
+                    <!-- 6. Penyakit Dalam -->
                     <div class="card card-doctor" data-name="reza fahlevi" data-specialty="penyakit dalam" data-lokasi="mrccc">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=150&q=80" alt="dr. Reza Fahlevi" class="doctor-avatar">
@@ -334,29 +311,29 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals Semanggi</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Semanggi</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Hari ini, 16:00 - 20:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Reza%20Fahlevi,%20Sp.PD&spesialis=Penyakit%20Dalam&lokasi=Hospitals%20Semanggi&img=https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
 
-                    <!-- Mata -->
-                    <div class="card card-doctor" data-name="maya sari" data-specialty="mata" data-lokasi="tb simatupang">
+                    <!-- 7. Mata (Atau disamakan dengan list terdekat, misal: bedah / kulit) -->
+                    <div class="card card-doctor" data-name="maya sari" data-specialty="kulit" data-lokasi="tb simatupang">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" alt="dr. Maya Sari" class="doctor-avatar">
                             <div class="doctor-info">
-                                <h3>dr. Maya Sari, Sp.M</h3>
-                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Spesialis Mata</p>
+                                <h3>dr. Maya Sari, Sp.KK</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Kulit & Kelamin</p>
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals TB Simatupang</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals TB Simatupang</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Senin, 10:00 - 14:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Maya%20Sari,%20Sp.KK&spesialis=Kulit%20&%20Kelamin&lokasi=Hospitals%20TB%20Simatupang&img=https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
 
-                    <!-- Kulit & Kelamin -->
+                    <!-- 8. Kulit -->
                     <div class="card card-doctor" data-name="kevin sanjaya" data-specialty="kulit" data-lokasi="lippo village">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" alt="dr. Kevin Sanjaya" class="doctor-avatar">
@@ -366,13 +343,29 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals Lippo Village</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Lippo Village</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Rabu, 13:00 - 16:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Kevin%20Sanjaya,%20Sp.KK&spesialis=Kulit%20&%20Kelamin&lokasi=Hospitals%20Lippo%20Village&img=https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
 
-                    <!-- Bedah Umum -->
+                    <!-- 9. THT / Penyakit Dalam -->
+                    <div class="card card-doctor" data-name="diana larasati" data-specialty="penyakit dalam" data-lokasi="kebon jeruk">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" alt="dr. Diana Larasati" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Diana Larasati, Sp.PD</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Penyakit Dalam</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Kebon Jeruk</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Selasa, 09:00 - 12:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Diana%20Larasati,%20Sp.PD&spesialis=Penyakit%20Dalam&lokasi=Hospitals%20Kebon%20Jeruk&img=https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
+                    <!-- 10. Bedah -->
                     <div class="card card-doctor" data-name="gunawan" data-specialty="bedah" data-lokasi="mrccc">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=150&q=80" alt="dr. Gunawan" class="doctor-avatar">
@@ -382,13 +375,45 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals Semanggi</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Semanggi</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Kamis, 15:00 - 18:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Gunawan,%20Sp.B&spesialis=Bedah%20Umum&lokasi=Hospitals%20Semanggi&img=https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
 
-                    <!-- Paru -->
+                    <!-- 11. Saraf / Jiwa -->
+                    <div class="card card-doctor" data-name="rina melati" data-specialty="saraf" data-lokasi="tb simatupang">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" alt="dr. Rina Melati" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Rina Melati, Sp.N</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Neurologi (Saraf)</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals TB Simatupang</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Jumat, 10:00 - 13:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Rina%20Melati,%20Sp.N&spesialis=Neurologi%20(Saraf)&lokasi=Hospitals%20TB%20Simatupang&img=https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
+                    <!-- 12. Bedah Umum -->
+                    <div class="card card-doctor" data-name="surya dharma" data-specialty="bedah" data-lokasi="lippo village">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=150&q=80" alt="dr. Surya Dharma" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Surya Dharma, Sp.B</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Bedah Umum</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Lippo Village</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Senin, 14:00 - 17:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Surya%20Dharma,%20Sp.B&spesialis=Bedah%20Umum&lokasi=Hospitals%20Lippo%20Village&img=https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
+                    <!-- 13. Paru -->
                     <div class="card card-doctor" data-name="aditya rahman" data-specialty="paru" data-lokasi="kebon jeruk">
                         <div class="doctor-header">
                             <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" alt="dr. Aditya Rahman" class="doctor-avatar">
@@ -398,11 +423,124 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Kelompok3Hospitals Kebon Jeruk</p>
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Kebon Jeruk</p>
                             <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Rabu, 09:00 - 12:00</strong></p>
                         </div>
-                        <button class="btn btn-outline btn-block">Buat Janji</button>
+                        <a href="detail-dokter.html?nama=dr.%20Aditya%20Rahman,%20Sp.P&spesialis=Pulmonologi%20(Paru)&lokasi=Hospitals%20Kebon%20Jeruk&img=https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
                     </div>
+
+                    <!-- 14. Penyakit Dalam -->
+                    <div class="card card-doctor" data-name="clara sinta" data-specialty="penyakit dalam" data-lokasi="mrccc">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" alt="dr. Clara Sinta" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Clara Sinta, Sp.PD</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Penyakit Dalam</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Semanggi</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Selasa, 13:00 - 16:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Clara%20Sinta,%20Sp.PD&spesialis=Penyakit%20Dalam&lokasi=Hospitals%20Semanggi&img=https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
+                    <!-- 15. Bedah Umum -->
+                    <div class="card card-doctor" data-name="firman utomo" data-specialty="bedah" data-lokasi="tb simatupang">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=150&q=80" alt="dr. Firman Utomo" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Firman Utomo, Sp.B</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Bedah Umum</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals TB Simatupang</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Kamis, 09:00 - 13:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Firman%20Utomo,%20Sp.B&spesialis=Bedah%20Umum&lokasi=Hospitals%20TB%20Simatupang&img=https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
+                    <!-- 16. Ortopedi -->
+                    <div class="card card-doctor" data-name="winda lestari" data-specialty="ortopedi" data-lokasi="lippo village">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" alt="dr. Winda Lestari" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Winda Lestari, Sp.OT</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Ortopedi (Tulang)</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Lippo Village</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Jumat, 14:00 - 17:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Winda%20Lestari,%20Sp.OT&spesialis=Ortopedi%20(Tulang)&lokasi=Hospitals%20Lippo%20Village&img=https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
+                    <!-- 17. Penyakit Dalam -->
+                    <div class="card card-doctor" data-name="yudi hermawan" data-specialty="penyakit dalam" data-lokasi="kebon jeruk">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=150&q=80" alt="dr. Yudi Hermawan" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Yudi H., Sp.PD</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Penyakit Dalam</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Kebon Jeruk</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Sabtu, 10:00 - 14:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Yudi%20H.,%20Sp.PD&spesialis=Penyakit%20Dalam&lokasi=Hospitals%20Kebon%20Jeruk&img=https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
+                    <!-- 18. Anak -->
+                    <div class="card card-doctor" data-name="nadia shafira" data-specialty="anak" data-lokasi="mrccc">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" alt="dr. Nadia Shafira" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Nadia Shafira, Sp.A</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Anak (Pediatri)</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Semanggi</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Senin, 16:00 - 20:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Nadia%20Shafira,%20Sp.A&spesialis=Anak%20(Pediatri)&lokasi=Hospitals%20Semanggi&img=https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
+                    <!-- 19. Jantung -->
+                    <div class="card card-doctor" data-name="antonius budi" data-specialty="jantung" data-lokasi="tb simatupang">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" alt="dr. Antonius Budi" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Antonius Budi, Sp.JP</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Kardiologi (Jantung)</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals TB Simatupang</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Rabu, 08:00 - 12:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Antonius%20Budi,%20Sp.JP&spesialis=Kardiologi%20(Jantung)&lokasi=Hospitals%20TB%20Simatupang&img=https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
+                    <!-- 20. Kandungan -->
+                    <div class="card card-doctor" data-name="sarah puspita" data-specialty="kandungan" data-lokasi="lippo village">
+                        <div class="doctor-header">
+                            <img src="https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" alt="dr. Sarah Puspita" class="doctor-avatar">
+                            <div class="doctor-info">
+                                <h3>dr. Sarah Puspita, Sp.OG</h3>
+                                <p style="font-size: 0.85rem; color: var(--brand-dark); margin: 0;">Kebidanan & Kandungan</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.2rem;">Hospitals Lippo Village</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Jadwal Terdekat: <strong>Selasa, 13:00 - 17:00</strong></p>
+                        </div>
+                        <a href="detail-dokter.html?nama=dr.%20Sarah%20Puspita,%20Sp.OG&spesialis=Kebidanan%20&%20Kandungan&lokasi=Hospitals%20Lippo%20Village&img=https://images.unsplash.com/photo-1594824416967-b50fd3732489?auto=format&fit=crop&w=150&q=80" class="btn btn-outline btn-block" style="text-align: center; display: block;">Buat Janji</a>
+                    </div>
+
                 </div>
             </section>
 
@@ -410,6 +548,7 @@
     </main>
 
     <div id="footer-placeholder"></div>
+
     <script src="../assets/js/global.js"></script>
     
     <script>
@@ -423,7 +562,6 @@
 
             function filterDoctors(nameQuery, specQuery, locQuery) {
                 let visibleCount = 0;
-
                 doctorCards.forEach(card => {
                     const docName = card.getAttribute("data-name") || "";
                     const docSpec = card.getAttribute("data-specialty") || "";
@@ -440,42 +578,30 @@
                         card.style.display = "none";
                     }
                 });
-
                 noResultMsg.style.display = visibleCount === 0 ? "block" : "none";
-                
                 hasilTitle.innerText = "Hasil Pencarian Dokter";
-                
                 hasilTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
             form.addEventListener("submit", function(e) {
                 e.preventDefault();
-                const nama = document.getElementById("filter-nama").value;
-                const spesialis = document.getElementById("filter-spesialis").value;
-                const lokasi = document.getElementById("filter-lokasi").value;
-                
-                filterDoctors(nama, spesialis, lokasi);
+                filterDoctors(document.getElementById("filter-nama").value, document.getElementById("filter-spesialis").value, document.getElementById("filter-lokasi").value);
             });
 
             spcLinks.forEach(link => {
                 link.addEventListener("click", function(e) {
                     e.preventDefault();
-                    
                     const selectedSpec = this.getAttribute("data-filter");
-                    
                     document.getElementById("filter-spesialis").value = selectedSpec;
                     document.getElementById("filter-nama").value = "";
                     document.getElementById("filter-lokasi").value = "";
-                    
                     filterDoctors("", selectedSpec, "");
                 });
             });
 
             btnReset.addEventListener("click", function() {
                 form.reset();
-                doctorCards.forEach(card => {
-                    card.style.display = "flex";
-                });
+                doctorCards.forEach(card => card.style.display = "flex");
                 noResultMsg.style.display = "none";
                 hasilTitle.innerText = "Semua Dokter";
             });
