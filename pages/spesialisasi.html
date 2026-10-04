@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spesialis Kami - Hospitals</title>
+    
+    <link rel="stylesheet" href="../assets/css/global.css">
+
+    <style>
+        body { background-color: #f8f9fa; font-family: Arial, sans-serif; margin: 0; }
+        .navbar { background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; height: 70px; }
+        .nav-item { display: flex; align-items: center; position: static; }
+        .nav-item > a { text-decoration: none; color: #333; font-weight: 500; font-size: 1rem; padding: 10px 0; height: 100%; display: flex; align-items: center; }
+        .nav-item > a:hover { color: #1a2a5e; }
+
+        .breadcrumb { font-size: 0.9rem; color: #666; margin-bottom: 2rem; padding: 2rem 1rem 0; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .breadcrumb a { color: #666; text-decoration: none; }
+        .breadcrumb span { margin: 0 0.5rem; }
+        .breadcrumb strong { color: #1a2a5e; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .page-title { font-size: 2.5rem; color: #333; margin-bottom: 2rem; font-weight: 500; }
+
+        .tab-container { display: flex; border-bottom: 1px solid #ddd; margin-bottom: 2rem; }
+        .tab-btn { background: none; border: none; padding: 1rem 2rem; font-size: 1rem; color: #666; cursor: pointer; font-weight: 500; transition: all 0.3s; }
+        .tab-btn.active { color: #1a2a5e; border-bottom: 3px solid #1a2a5e; font-weight: bold; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .search-rs-container { display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center; }
+        .search-box-sp { flex: 1; display: flex; align-items: center; border: 1px solid #ced4da; border-radius: 8px; padding: 0.6rem 1rem; background: white; }
+        .search-box-sp span { color: #888; margin-right: 0.5rem; font-size: 1.1rem; }
+        .search-box-sp input { border: none; outline: none; width: 100%; font-size: 0.95rem; color: #333; }
+        
+        .rs-select-box { flex: 1; border: 1px solid #ced4da; border-radius: 8px; padding: 0.6rem 1rem; background: white; color: #666; display: flex; flex-direction: column; }
+        .rs-select-box label { font-size: 0.75rem; color: #888; margin-bottom: 0.2rem; }
+        .rs-select-box select { border: none; outline: none; font-size: 0.95rem; color: #333; width: 100%; background: transparent; cursor: pointer; }
+
+        .section-title { font-size: 1.2rem; color: #1a2a5e; font-weight: 600; margin-bottom: 1rem; }
+        
+        /* Abjad Bulat */
+        .alphabet-circles { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; align-items: center; }
+        .alpha-circle { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: #666; cursor: pointer; transition: all 0.2s; }
+        .alpha-circle:hover { color: #1a2a5e; font-weight: bold; }
+        .alpha-circle.active { background-color: #1a2a5e; color: white; font-weight: bold; }
+        .alpha-circle.disabled { color: #ccc; cursor: not-allowed; }
+        
+        /* List Spesialisasi Umum */
+        .sp-group { margin-bottom: 3rem; }
+        .sp-letter { font-size: 2rem; color: #1a2a5e; font-weight: 500; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+        .sp-item {
+            background: white; border: 1px solid #eee; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem;
+            display: flex; justify-content: space-between; align-items: center; transition: box-shadow 0.2s; cursor: pointer;
+        }
+        .sp-item:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-color: #ddd; }
+        .sp-item-text h4 { margin: 0 0 0.5rem 0; font-size: 1.1rem; color: #333; font-weight: 600; }
+        .sp-item-text p { margin: 0; font-size: 0.9rem; color: #666; line-height: 1.4; }
+        .sp-item-arrow { color: #28a745; font-size: 1.2rem; font-weight: bold; }
+
+        .no-result-msg { display: none; text-align: center; padding: 3rem; color: #777; font-size: 1.1rem; background: white; border-radius: 12px; }
+
+        .organ-container { margin-bottom: 4rem; }
+        .gender-toggle { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .gender-btn { 
+            display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; 
+            border: 1px solid #ddd; border-radius: 50px; cursor: pointer; 
+            background: white; color: #666; font-size: 0.9rem; transition: all 0.2s;
+        }
+        .gender-btn.active { border-color: #28a745; background: #f0fdf4; color: #28a745; font-weight: bold; }
+        .gender-dot { width: 12px; height: 12px; border-radius: 50%; background-color: #ddd; display: inline-block; }
+        .gender-btn.active .gender-dot { background-color: #28a745; }
+        
+        .organ-tags { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 3rem; }
+        .organ-tag { 
+            padding: 0.6rem 1.5rem; border: 1px solid #ddd; border-radius: 50px; 
+            background: white; color: #666; cursor: pointer; font-size: 0.95rem; transition: all 0.2s; 
+        }
+        .organ-tag:hover { border-color: #1a2a5e; }
+        .organ-tag.active { background: #1a2a5e; color: white; border-color: #1a2a5e; }
+
+        /* MODAL POPUP */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 9999; display: none; justify-content: center; align-items: center; }
+        .modal-content { background: #fff; width: 95%; max-width: 900px; max-height: 90vh; overflow-y: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; padding: 2.5rem; }
+        .modal-close-btn { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #888; }
+        .modal-close-btn:hover { color: #333; }
+        .modal-grid { display: flex; gap: 3rem; }
+        @media(max-width: 768px) { .modal-grid { flex-direction: column; gap: 1.5rem; } }
+        .modal-info { flex: 2; }
+        .modal-breadcrumb { font-size: 0.85rem; color: #888; margin-bottom: 1.5rem; }
+        .modal-breadcrumb span { margin: 0 0.3rem; }
+        .modal-subtitle { font-size: 1.1rem; color: #1a2a5e; margin-bottom: 0.5rem; display: block; text-decoration: underline; cursor: pointer; }
+        .modal-title { font-size: 2.2rem; color: #333; font-weight: normal; margin: 0 0 1.5rem 0; }
+        .modal-warning-box { background-color: #fffdf2; border: 1px solid #ffe69c; border-radius: 8px; padding: 1rem 1.5rem; display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .modal-warning-box i { color: #d4a72c; font-size: 1.2rem; margin-top: 0.1rem; }
+        .modal-warning-box p { margin: 0; color: #a17a0d; font-size: 0.95rem; line-height: 1.5; }
+        .modal-desc { font-size: 1rem; color: #444; line-height: 1.6; margin-bottom: 1rem; }
+        .modal-read-more { color: #1a2a5e; font-weight: 500; text-decoration: none; cursor: pointer; }
+        .modal-sidebar { flex: 1; background-color: #f7f9fc; border-radius: 12px; padding: 2rem 1.5rem; height: fit-content; }
+        .sidebar-title { font-size: 1.3rem; color: #1a2a5e; font-weight: normal; margin: 0 0 1.5rem 0; }
+        .sidebar-list { list-style: none; padding: 0; margin: 0; }
+        .sidebar-list li { border-bottom: 1px solid #e1e8ed; }
+        .sidebar-link { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; color: #444; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+        .sidebar-link:hover { color: #28a745; }
+        .sidebar-link i { color: #28a745; font-size: 1.2rem; }
+        .sidebar-help { margin-top: 2rem; font-size: 0.9rem; color: #888; }
+        .sidebar-help-link { color: #1a2a5e; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; font-weight: 500;}
+        .sidebar-help-link i { color: #28a745; font-size: 1.1rem;}
+    </style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+    <div class="breadcrumb">
+        <a href="index.html">Beranda</a> <span>&gt;</span> <strong>Spesialisasi</strong>
+    </div>
+
+    <main class="container">
+        <h1 class="page-title">Spesialisasi Kami</h1>
+
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="switchTab('nama')">Berdasarkan Nama</button>
+            <button class="tab-btn" onclick="switchTab('organ')">Berdasarkan Organ</button>
+        </div>
+
+        <div id="tab-nama" class="tab-content active">
+            
+            <div class="search-rs-container">
+                <div class="search-box-sp">
+                    <span>🔍</span>
+                    <input type="text" id="inputSearchSp" placeholder="Cari Spesialisasi/Subspesialisasi">
+                </div>
+                <div class="rs-select-box">
+                    <label>Rumah Sakit</label>
+                    <select id="selectRs">
+                        <option value="">Pilih Rumah Sakit</option>
+                        <option value="kebon jeruk">Hospitals Kebon Jeruk</option>
+                        <option value="tb simatupang">Hospitals TB Simatupang</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 class="section-title">Cari Berdasarkan Abjad</h3>
+            
+            <div class="alphabet-circles" id="alphaContainer">
+                <div class="alpha-circle active" data-alpha="all">All</div>
+                <!-- Huruf via JS -->
+            </div>
+
+            <div id="spesialis-list-container">
+                <div id="no-result-msg" class="no-result-msg">Spesialisasi tidak ditemukan.</div>
+                
+                <div class="sp-group" data-letter="A">
+                    <h2 class="sp-letter">A</h2>
+                    <div class="sp-item" data-keywords="anak pediatri asma" onclick="openModal('Pulmonologi dan Kedokteran Respirasi', 'Asma dan PPOK', 'Dokter spesialis pulmonologi dan kedokteran respirasi dengan subspesialis asma dan PPOK secara khusus mempelajari kondisi yang terkait dengan penyempitan saluran pernapasan.')">
+                        <div class="sp-item-text">
+                            <h4>Asma dan PPOK</h4>
+                            <p>Menangani masalah penyempitan saluran pernapasan karena kondisi medis tertentu.</p>
+                        </div>
+                        <span class="sp-item-arrow">></span>
+                    </div>
+                </div>
+
+                <div class="sp-group" data-letter="B">
+                    <h2 class="sp-letter">B</h2>
+                    <div class="sp-item" data-keywords="bedah saraf otak" onclick="openModal('Bedah', 'Bedah Saraf', 'Dokter spesialis bedah saraf memiliki keahlian dalam menangani masalah pada sistem saraf pusat dan saraf tepi melalui pendekatan pembedahan (operasi).')">
+                        <div class="sp-item-text">
+                            <h4>Bedah Saraf</h4>
+                            <p>Melakukan tindakan operasi atau bedah terkait masalah pada sistem saraf.</p>
+                        </div>
+                        <span class="sp-item-arrow">></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-organ" class="tab-content">
+           <h3 class="section-title">Temukan Spesialis/Subspesialis Kami</h3>
+           
+           <div class="organ-container">
+                
+                <!-- FILTER GENDER (Laki-laki / Perempuan) -->
+                <div style="font-size: 0.85rem; color: #888; margin-bottom: 0.5rem;">Jenis kelamin</div>
+                <div class="gender-toggle">
+                    <div class="gender-btn active" data-gender="all">
+                        <span class="gender-dot"></span> Semua
+                    </div>
+                    <div class="gender-btn" data-gender="laki-laki">
+                        <span class="gender-dot"></span> Laki-laki
+                    </div>
+                    <div class="gender-btn" data-gender="perempuan">
+                        <span class="gender-dot"></span> Perempuan
+                    </div>
+                </div>
+
+                <!-- FILTER ORGAN TUBUH -->
+                <div class="organ-tags">
+                    <button class="organ-tag active" data-organ="semua">Semua</button>
+                    <button class="organ-tag" data-organ="darah">Darah</button>
+                    <button class="organ-tag" data-organ="tulang">Tulang, Otot, Dan Sendi</button>
+                    <button class="organ-tag" data-organ="kepala">Kepala</button>
+                    <button class="organ-tag" data-organ="otak">Otak</button>
+                    <button class="organ-tag" data-organ="mata">Mata</button>
+                    <button class="organ-tag" data-organ="telinga">Telinga</button>
+                    <button class="organ-tag" data-organ="wajah">Wajah</button>
+                    <button class="organ-tag" data-organ="mulut">Mulut</button>
+                    <button class="organ-tag" data-organ="leher">Leher</button>
+                    <button class="organ-tag" data-organ="dada">Dada</button>
+                    <button class="organ-tag" data-organ="kelamin">Kelamin & Reproduksi</button>
+                </div>
+
+                <!-- DAFTAR SPESIALISASI BERDASARKAN ORGAN (Atribut 'data-organ' & 'data-gender' ditambahkan di sini) -->
+                <div id="organ-list-result">
+                    <div id="no-organ-msg" class="no-result-msg">Spesialisasi untuk bagian tubuh ini belum tersedia.</div>
+
+                    <!-- Bedah Saraf (Kepala, Otak) -->
+                    <div class="sp-item organ-item" data-organ="kepala,otak" data-gender="all" style="border-left: 4px solid #28a745;" onclick="openModal('Bedah', 'Bedah Saraf', 'Dokter spesialis bedah saraf memiliki keahlian dalam menangani masalah pada sistem saraf pusat dan saraf tepi melalui pendekatan pembedahan.')">
+                        <div class="sp-item-text">
+                            <h4>Bedah Saraf</h4>
+                            <p>Melakukan tindakan operasi atau bedah terkait masalah pada sistem saraf, otak, dan tulang belakang.</p>
+                        </div>
+                        <span class="sp-item-arrow">></span>
+                    </div>
+                    
+                    <!-- Neurologi (Saraf) -->
+                    <div class="sp-item organ-item" data-organ="kepala,otak" data-gender="all" onclick="openModal('Saraf', 'Neurologi', 'Menangani berbagai kelainan pada sistem saraf pusat dan tepi non-pembedahan.')">
+                        <div class="sp-item-text">
+                            <h4>Neurologi</h4>
+                            <p>Menangani beragam masalah kesehatan yang berkaitan dengan sistem saraf, termasuk stroke dan epilepsi.</p>
+                        </div>
+                        <span class="sp-item-arrow">></span>
+                    </div>
+
+                    <!-- Ortopedi (Tulang, Otot, Sendi) -->
+                    <div class="sp-item organ-item" data-organ="tulang" data-gender="all" onclick="openModal('Bedah', 'Ortopedi', 'Menangani cedera dan penyakit pada sistem muskuloskeletal tubuh.')">
+                        <div class="sp-item-text">
+                            <h4>Ortopedi (Tulang & Sendi)</h4>
+                            <p>Menangani cedera, trauma, patah tulang, dan gangguan fungsi sendi.</p>
+                        </div>
+                        <span class="sp-item-arrow">></span>
+                    </div>
+
+                    <!-- Hematologi (Darah) -->
+                    <div class="sp-item organ-item" data-organ="darah" data-gender="all" onclick="openModal('Penyakit Dalam', 'Hematologi', 'Mendiagnosis dan mengobati gangguan darah, termasuk anemia dan kanker darah.')">
+                        <div class="sp-item-text">
+                            <h4>Hematologi Onkologi</h4>
+                            <p>Menangani masalah medis yang berhubungan dengan darah, kelenjar getah bening, dan kanker.</p>
+                        </div>
+                        <span class="sp-item-arrow">></span>
+                    </div>
+
+                    <!-- Obgyn (Kelamin, Perempuan) -->
+                    <div class="sp-item organ-item" data-organ="kelamin" data-gender="perempuan" onclick="openModal('Kandungan', 'Kebidanan & Kandungan (Obgyn)', 'Menangani kesehatan sistem reproduksi wanita dan kehamilan.')">
+                        <div class="sp-item-text">
+                            <h4>Kebidanan & Kandungan (Obgyn)</h4>
+                            <p>Fokus pada kesehatan sistem reproduksi wanita, kehamilan, dan persalinan.</p>
+                        </div>
+                        <span class="sp-item-arrow">></span>
+                    </div>
+
+                    <!-- Urologi/Andrologi (Kelamin, Laki-laki) -->
+                    <div class="sp-item organ-item" data-organ="kelamin" data-gender="laki-laki" onclick="openModal('Urologi', 'Andrologi', 'Spesialis yang menangani gangguan kesuburan dan fungsi reproduksi khusus pria.')">
+                        <div class="sp-item-text">
+                            <h4>Andrologi & Urologi Pria</h4>
+                            <p>Fokus pada sistem reproduksi pria, infertilitas, dan gangguan fungsi seksual laki-laki.</p>
+                        </div>
+                        <span class="sp-item-arrow">></span>
+                    </div>
+                </div>
+                
+           </div>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- MODAL POPUP (Tetap Sama) -->
+    <div id="detailModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeModal()">×</button>
+            <div class="modal-grid">
+                <div class="modal-info">
+                    <div class="modal-breadcrumb">Beranda <span>&gt;</span> Sub-Spesialisasi <span>&gt;</span> <strong id="modalBreadcrumbName" style="color: #333; font-weight:normal;">Nama Penyakit</strong></div>
+                    <span style="color: #888; font-size:1.1rem;">Sub-Spesialisasi dari </span><span class="modal-subtitle" id="modalMainCategory">Kategori Utama</span>
+                    <h2 class="modal-title" id="modalTitle">Nama Penyakit</h2>
+                    <div class="modal-warning-box">
+                        <i>ⓘ</i><p>Seluruh informasi pada halaman ini ditujukan sebagai referensi umum dan tidak membatasi cakupan layanan medis...</p>
+                    </div>
+                    <p class="modal-desc" id="modalDesc">Deskripsi detail penyakit akan muncul di sini.</p>
+                    <a class="modal-read-more">Baca Selengkapnya</a>
+                </div>
+                <div class="modal-sidebar">
+                    <h3 class="sidebar-title">Tautan Langsung</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="cari-dokter.html" class="sidebar-link">Temukan Dokter <i>→</i></a></li>
+                        <li><a href="#" class="sidebar-link">Informasi Rumah Sakit <i>→</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../assets/js/global.js"></script>
+    <script>
+        // Logika Tab
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
+        }
+
+        // Logika Modal
+        const modal = document.getElementById('detailModal');
+        function openModal(mainCategory, title, description) {
+            document.getElementById('modalMainCategory').innerText = mainCategory;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBreadcrumbName').innerText = title;
+            document.getElementById('modalDesc').innerText = description;
+            modal.style.display = 'flex';
+        }
+        function closeModal() { modal.style.display = 'none'; }
+        window.onclick = function(event) { if (event.target == modal) closeModal(); }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComponent("header-placeholder", "../header.html");
+            loadComponent("footer-placeholder", "../footer.html");
+            
+            // =========================================
+            // 1. FILTER ABJAD (TAB 1)
+            // =========================================
+            const spGroups = document.querySelectorAll(".sp-group");
+            const searchInput = document.getElementById("inputSearchSp");
+            const noMsg = document.getElementById("no-result-msg");
+            const alphaContainer = document.getElementById("alphaContainer");
+            
+            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+            const availableLetters = Array.from(spGroups).map(g => g.getAttribute("data-letter"));
+
+            letters.forEach(letter => {
+                const div = document.createElement("div");
+                div.className = "alpha-circle";
+                div.innerText = letter;
+                div.setAttribute("data-alpha", letter);
+                if (!availableLetters.includes(letter)) {
+                    div.classList.add("disabled");
+                } else {
+                    div.addEventListener("click", function() {
+                        filterAlphaData(letter);
+                        setActiveAlpha(this);
+                    });
+                }
+                alphaContainer.appendChild(div);
+            });
+
+            const btnAll = document.querySelector(".alpha-circle[data-alpha='all']");
+            if(btnAll) {
+                btnAll.addEventListener("click", function() {
+                    filterAlphaData("all");
+                    setActiveAlpha(this);
+                });
+            }
+
+            function setActiveAlpha(element) {
+                document.querySelectorAll(".alpha-circle").forEach(el => el.classList.remove("active"));
+                element.classList.add("active");
+            }
+
+            function filterAlphaData(selectedAlpha = "all") {
+                const query = searchInput.value.toLowerCase().trim();
+                let visibleCount = 0;
+                spGroups.forEach(group => {
+                    const groupLetter = group.getAttribute("data-letter");
+                    const itemsInGroup = group.querySelectorAll(".sp-item");
+                    let itemsVisibleInGroup = 0;
+                    const matchAlpha = (selectedAlpha === "all" || groupLetter === selectedAlpha);
+                    itemsInGroup.forEach(item => {
+                        const title = item.querySelector("h4").innerText.toLowerCase();
+                        const matchSearch = (title.includes(query));
+                        if (matchAlpha && matchSearch) {
+                            item.style.display = "flex";
+                            itemsVisibleInGroup++; visibleCount++;
+                        } else { item.style.display = "none"; }
+                    });
+                    group.style.display = itemsVisibleInGroup > 0 ? "block" : "none";
+                });
+                noMsg.style.display = visibleCount === 0 ? "block" : "none";
+            }
+            if(searchInput) {
+                searchInput.addEventListener("input", () => {
+                    setActiveAlpha(btnAll);
+                    filterAlphaData("all");
+                });
+            }
+
+            // =========================================
+            // 2. FILTER ORGAN & GENDER (TAB 2)
+            // =========================================
+            const organBtns = document.querySelectorAll(".organ-tag");
+            const genderBtns = document.querySelectorAll(".gender-btn");
+            const organItems = document.querySelectorAll(".organ-item");
+            const noOrganMsg = document.getElementById("no-organ-msg");
+
+            let currentOrgan = "semua";
+            let currentGender = "all";
+
+            // Event Klik Filter Jenis Kelamin
+            genderBtns.forEach(btn => {
+                btn.addEventListener("click", function() {
+                    genderBtns.forEach(b => b.classList.remove("active"));
+                    this.classList.add("active");
+                    currentGender = this.getAttribute("data-gender");
+                    filterOrganData();
+                });
+            });
+
+            // Event Klik Filter Organ Tubuh
+            organBtns.forEach(btn => {
+                btn.addEventListener("click", function() {
+                    organBtns.forEach(b => b.classList.remove("active"));
+                    this.classList.add("active");
+                    currentOrgan = this.getAttribute("data-organ");
+                    filterOrganData();
+                });
+            });
+
+            // Fungsi Eksekusi Filter Tab Organ
+            function filterOrganData() {
+                let visibleCount = 0;
+                organItems.forEach(item => {
+                    // Ambil data (Bisa lebih dari 1 organ, misalnya data-organ="kepala,otak")
+                    const itemOrganTags = item.getAttribute("data-organ").split(",");
+                    const itemGender = item.getAttribute("data-gender");
+
+                    // Logika Pencocokan
+                    const matchOrgan = (currentOrgan === "semua" || itemOrganTags.includes(currentOrgan));
+                    
+                    // Logika Gender: 
+                    // Jika item "all", bisa dilihat Laki/Perempuan. 
+                    // Jika item "perempuan", hanya bisa dilihat saat filter "all" atau "perempuan".
+                    const matchGender = (currentGender === "all" || itemGender === "all" || itemGender === currentGender);
+
+                    if (matchOrgan && matchGender) {
+                        item.style.display = "flex";
+                        visibleCount++;
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+
+                noOrganMsg.style.display = (visibleCount === 0) ? "block" : "none";
+            }
+            
+            // Panggil fungsi saat pertama kali halaman diload
+            filterOrganData();
+        });
+    </script>
+</body>
+</html>
