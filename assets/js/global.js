@@ -37,8 +37,8 @@ function loadComponent(elementId, filePath) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    loadComponent("header-placeholder", "header.html");
-    loadComponent("footer-placeholder", "footer.html");
+    // loadComponent("header-placeholder", "header.html");
+    // loadComponent("footer-placeholder", "footer.html");
 
     /* INTERSECTION OBSERVER */
 
@@ -65,4 +65,14 @@ document.addEventListener("DOMContentLoaded", function () {
     animatedElements.forEach((el) => {
         scrollObserver.observe(el);
     });
+});
+
+document.addEventListener('click', function(e) {
+    const hamburgerBtn = e.target.closest('.hamburger');
+    
+    if (hamburgerBtn) {
+        const navWrapper = document.querySelector('.nav-menu-wrapper');
+        hamburgerBtn.classList.toggle('active');
+        navWrapper.classList.toggle('active');
+    }
 });

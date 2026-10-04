@@ -1,0 +1,99 @@
+.hero-banner-large {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-overlap-container {
+    margin-top: -100px;
+    position: relative;
+    z-index: 10;
+}
+
+.card-icon-side {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.card-icon-side .icon-wrapper {
+    font-size: 2rem;
+    color: var(--brand-dark);
+    background-color: var(--brand-cream);
+    padding: 0.8rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon-side h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.card-icon-side p {
+    font-size: 0.9rem;
+    color: var(--brand-gray);
+    margin: 0;
+}
+
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card-pricing {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.card-pricing h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.card-pricing .price-label {
+    font-size: 0.85rem;
+    color: var(--brand-gray);
+    margin-bottom: 0.2rem;
+}
+
+.card-pricing .price {
+    font-size: 2rem;
+    color: var(--brand-dark);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--brand-cream);
+    padding-bottom: 1rem;
+}
+
+.card-pricing ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.card-pricing ul li {
+    font-size: 0.85rem;
+    color: var(--brand-gray);
+    margin-bottom: 0.6rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.card-pricing ul li::before {
+    content: '✓';
+    color: var(--brand-dark);
+    font-weight: bold;
+}

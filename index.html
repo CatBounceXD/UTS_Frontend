@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>E-Health - Solusi Kesehatan Anda</title>
+        <title>Hospitals - Solusi Kesehatan Anda</title>
         <link rel="stylesheet" href="assets/css/global.css" />
     </head>
     <body>
@@ -12,7 +12,7 @@
         <main style="padding-top: 0">
             <div class="banner-split" style="border-radius: 0px">
                 <div class="banner-content">
-                    <p>Selamat Datang di E-Health Klinik</p>
+                    <p>Selamat Datang di Hospitals</p>
                     <h2 style="font-size: 2.5rem">
                         Yang berarti,<br />segera kembali.
                     </h2>
@@ -452,9 +452,15 @@
             </section>
         </main>
 
-        <!-- WADAH FOOTER (Diatur oleh global.js) -->
         <div id="footer-placeholder"></div>
 
         <script src="./assets/js/global.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                loadComponent("header-placeholder", "header.html");
+                loadComponent("footer-placeholder", "footer.html");
+            });
+        </script>
     </body>
 </html>
