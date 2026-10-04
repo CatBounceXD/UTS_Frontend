@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semua Paket Medical Check Up - Hospitals</title>
+    
+    <link rel="stylesheet" href="../assets/css/global.css">
+    
+    <style>
+        body { background-color: #ffffff; font-family: Arial, sans-serif; }
+        
+        /* =========================================
+           CSS LAYOUT UTAMA (BARU)
+        ========================================= */
+        .container-mcu {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .breadcrumb a { color: #666; text-decoration: none; }
+        .breadcrumb span { margin: 0 0.5rem; }
+        .breadcrumb strong { color: #1a2a5e; }
+
+        /* Header (Judul & Search) */
+        .mcu-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .mcu-header-flex h1 {
+            font-size: 2rem;
+            color: #333;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .search-box-mcu {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            padding: 0.6rem 1rem;
+            width: 100%;
+            max-width: 400px;
+            background: white;
+        }
+        .search-box-mcu span { color: #888; margin-right: 0.5rem; font-size: 1.1rem; }
+        .search-box-mcu input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        /* Section Kategori (Grid Ikon) */
+        .category-section h2 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .category-icon-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1.5rem 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .cat-icon-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            gap: 0.8rem;
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #1a2a5e;
+            transition: all 0.2s ease;
+        }
+
+        .cat-icon-card span {
+            font-size: 0.85rem;
+            color: #444;
+            line-height: 1.3;
+            font-weight: 500;
+        }
+
+        /* Hover & Active State untuk Ikon Kategori */
+        .cat-icon-card:hover .icon-box, 
+        .cat-icon-card.active .icon-box {
+            border-color: #1a2a5e;
+            box-shadow: 0 4px 15px rgba(26, 42, 94, 0.15);
+            transform: translateY(-3px);
+        }
+        .cat-icon-card:hover span,
+        .cat-icon-card.active span {
+            color: #1a2a5e;
+            font-weight: bold;
+        }
+
+        /* Grid Paket MCU (Hasil Filter) */
+        .mcu-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 1.5rem; 
+        }
+
+        .mcu-card {
+            background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #eaeaea; display: flex; flex-direction: column; transition: transform 0.2s;
+        }
+        .mcu-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+
+        .mcu-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+        .mcu-tag { display: inline-block; background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; font-weight: bold; padding: 0.3rem 0.6rem; border-radius: 4px; margin-bottom: 0.6rem; text-transform: uppercase; width: fit-content; }
+        .mcu-title { font-size: 1.15rem; color: #1a2a5e; font-weight: bold; margin-bottom: 0.6rem; line-height: 1.4; }
+        .mcu-desc { font-size: 0.9rem; color: #666; line-height: 1.5; margin-bottom: 1.2rem; flex: 1; }
+        .mcu-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f0f0f0; padding-top: 1rem; }
+        .mcu-price { font-size: 1.1rem; font-weight: bold; color: #1a2a5e; }
+        .btn-pesan { background-color: #1a2a5e; color: white; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; text-decoration: none; font-weight: 500; transition: background 0.2s; }
+        .btn-pesan:hover { background-color: #111c40; }
+
+        #no-mcu-msg { display: none; text-align: center; padding: 3rem; color: #777; font-size: 1.1rem; grid-column: 1 / -1; background: #f8f9fa; border-radius: 12px; border: 1px dashed #ccc; }
+
+
+        /* =========================================
+           CSS MODAL "ATUR LOKASI" (TETAP ADA)
+        ========================================= */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); z-index: 9999;
+            display: none; justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background: #fff; width: 90%; max-width: 500px; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden;
+            animation: modalFadeIn 0.3s ease;
+        }
+        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .modal-header { padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+        .modal-header h2 { margin: 0; font-size: 1.4rem; color: #333; font-weight: bold; }
+        .close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #888; }
+        
+        .modal-body { padding: 1.5rem; }
+        .form-group-modal { margin-bottom: 1.5rem; }
+        .form-group-modal label { display: block; font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; }
+        
+        .radio-card {
+            border: 1px solid #ddd; border-radius: 8px; padding: 1rem;
+            display: flex; align-items: center; gap: 1rem; cursor: pointer;
+        }
+        .radio-card.active { border-color: #1a2a5e; background-color: #f4f6fa; }
+        .radio-card input[type="radio"] { accent-color: #1a2a5e; transform: scale(1.2); }
+        .radio-text strong { display: block; color: #333; font-size: 1rem; margin-bottom: 0.2rem; }
+        .radio-text span { color: #777; font-size: 0.85rem; }
+
+        .dropdown-rs { position: relative; }
+        .dropdown-rs-header {
+            border: 1px solid #ddd; border-radius: 8px; padding: 1rem;
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; color: #555; background: #fff;
+        }
+        .dropdown-rs-body {
+            position: absolute; top: 100%; left: 0; width: 100%;
+            background: #fff; border: 1px solid #ddd; border-top: none;
+            border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 10;
+            max-height: 350px; overflow-y: auto; display: none;
+        }
+        .dropdown-rs.active .dropdown-rs-body { display: block; }
+        
+        .dropdown-search { padding: 0.8rem; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 0.5rem; }
+        .dropdown-search input { border: none; outline: none; width: 100%; font-size: 0.95rem; }
+        .rs-item { padding: 1rem; font-size: 0.95rem; color: #333; cursor: pointer; border-bottom: 1px solid #f9f9f9; }
+        .rs-item:hover { background: #f4f6fa; color: #1a2a5e; }
+
+        /* Responsif untuk Grid Kategori */
+        @media (max-width: 992px) { .category-icon-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 576px) { .category-icon-grid { grid-template-columns: repeat(3, 1fr); } }
+    </style>
+</head>
+<body>
+
+    <!-- MODAL ATUR LOKASI (TETAP ADA) -->
+    <div id="modalAturLokasi" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Atur Lokasi</h2>
+                <button class="close-btn" id="btnCloseModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group-modal">
+                    <label>Tipe Layanan</label>
+                    <div class="radio-card active" id="radioHospital">
+                        <input type="radio" name="layanan" checked>
+                        <div class="radio-text">
+                            <strong>di Rumah Sakit</strong>
+                            <span>Kunjungi rumah sakit untuk menjalani tes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-modal">
+                    <label>Rumah Sakit</label>
+                    <div class="dropdown-rs" id="rsDropdownWrapper">
+                        <div class="dropdown-rs-header" id="rsDropdownHeader">
+                            <span id="selectedRsText">Pilih Rumah Sakit Hospitals</span>
+                            <span style="color: #1a2a5e; font-weight: bold;">∨</span>
+                        </div>
+                        <div class="dropdown-rs-body">
+                            <div class="dropdown-search">
+                                <span>🔍</span>
+                                <input type="text" placeholder="Cari rumah sakit..." id="rsSearchInput">
+                            </div>
+                            <!-- 4 Rumah Sakit -->
+                            <div class="rs-item">Hospitals Kebon Jeruk</div>
+                            <div class="rs-item">Hospitals TB Simatupang</div>
+                            <div class="rs-item">Hospitals Semanggi</div>
+                            <div class="rs-item">Hospitals Lippo Village</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR BISA DITEMPATKAN DI SINI -->
+    <div id="header-placeholder"></div>
+
+    <main class="container-mcu">
+        
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Beranda</a> <span>&gt;</span> <strong>Semua Paket Medical Check Up</strong>
+        </div>
+
+        <!-- Judul & Search Bar -->
+        <div class="mcu-header-flex">
+            <h1>Layanan Medical Check Up</h1>
+            <div class="search-box-mcu">
+                <span>🔍</span>
+                <input type="text" id="input-search-mcu" placeholder="Cari nama paket Medical Check Up">
+            </div>
+        </div>
+
+        <!-- Kategori Ikon Berjejer -->
+        <div class="category-section">
+            <h2>Kategori</h2>
+            
+            <div class="category-icon-grid">
+                <!-- Baris 1 -->
+                <div class="cat-icon-card active" data-category="semua">
+                    <div class="icon-box">📋</div>
+                    <span>Semua Paket</span>
+                </div>
+                <div class="cat-icon-card" data-category="jantung">
+                    <div class="icon-box">🫀</div>
+                    <span>Skrining Jantung</span>
+                </div>
+                <div class="cat-icon-card" data-category="prakerja">
+                    <div class="icon-box">💼</div>
+                    <span>Skrining Prakerja</span>
+                </div>
+                <div class="cat-icon-card" data-category="genomik">
+                    <div class="icon-box">🧬</div>
+                    <span>Genomik Testing</span>
+                </div>
+                <div class="cat-icon-card" data-category="vaksinasi">
+                    <div class="icon-box">💉</div>
+                    <span>Vaksinasi</span>
+                </div>
+                <div class="cat-icon-card" data-category="kanker">
+                    <div class="icon-box">🦠</div>
+                    <span>Skrining Kanker</span>
+                </div>
+                <div class="cat-icon-card" data-category="pranikah">
+                    <div class="icon-box">💍</div>
+                    <span>Skrining Pranikah</span>
+                </div>
+                <div class="cat-icon-card" data-category="visa">
+                    <div class="icon-box">🛂</div>
+                    <span>Aplikasi Visa</span>
+                </div>
+
+                <!-- Baris 2 -->
+                <div class="cat-icon-card" data-category="umum">
+                    <div class="icon-box">🩺</div>
+                    <span>Skrining Umum</span>
+                </div>
+                <div class="cat-icon-card" data-category="ginjal">
+                    <div class="icon-box">🫘</div>
+                    <span>Skrining Ginjal</span>
+                </div>
+                <div class="cat-icon-card" data-category="stroke">
+                    <div class="icon-box">🧠</div>
+                    <span>Skrining Stroke</span>
+                </div>
+                <div class="cat-icon-card" data-category="spesial">
+                    <div class="icon-box">٪</div>
+                    <span>Penawaran Spesial</span>
+                </div>
+                <div class="cat-icon-card" data-category="lainnya">
+                    <div class="icon-box">≡</div>
+                    <span>Lainnya</span>
+                </div>
+                <div class="cat-icon-card" data-category="wanita">
+                    <div class="icon-box">🚻</div>
+                    <span>Skrining Pria & Wanita</span>
+                </div>
+                <div class="cat-icon-card" data-category="premium">
+                    <div class="icon-box">✈️</div>
+                    <span>Advanced Premium MCU</span>
+                </div>
+                <div class="cat-icon-card" data-category="pelari">
+                    <div class="icon-box">🏃</div>
+                    <span>Skrining Pelari</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daftar Paket Hasil Filter (Muncul di Bawah Kategori) -->
+        <div class="mcu-grid" id="mcu-grid-container">
+            <div id="no-mcu-msg">Maaf, paket medical check up yang Anda cari tidak ditemukan.</div>
+
+            <!-- Paket Pria -->
+            <div class="mcu-card" data-category="wanita" data-keywords="pria executive health screening general check up">
+                <div class="mcu-card-body">
+                    <span class="mcu-tag">Untuk Pria</span>
+                    <h3 class="mcu-title">Paket Hospitals Executive Men</h3>
+                    <p class="mcu-desc">Pemeriksaan menyeluruh khusus pria meliputi fungsi hati, ginjal, profil lipid, diabetes, penanda tumor prostat (PSA), dan rontgen dada.</p>
+                    <div class="mcu-footer">
+                        <span class="mcu-price">Rp 2.499.000</span>
+                        <a href="buat-janji.html" class="btn-pesan">Pesan Paket</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paket Wanita -->
+            <div class="mcu-card" data-category="wanita" data-keywords="wanita women health screening pap smear mammografi">
+                <div class="mcu-card-body">
+                    <span class="mcu-tag" style="background:#fce4ec; color:#c2185b;">Untuk Wanita</span>
+                    <h3 class="mcu-title">Paket Hospitals Executive Women</h3>
+                    <p class="mcu-desc">Skrining kesehatan khusus wanita mencakup hematologi lengkap, fungsi tiroid, skrining reproduksi, Pap Smear, dan USG payudara.</p>
+                    <div class="mcu-footer">
+                        <span class="mcu-price">Rp 2.750.000</span>
+                        <a href="buat-janji.html" class="btn-pesan">Pesan Paket</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paket Jantung -->
+            <div class="mcu-card" data-category="jantung" data-keywords="skrining jantung kardiologi ekg treadmill echocardiography">
+                <div class="mcu-card-body">
+                    <span class="mcu-tag">Skrining Jantung</span>
+                    <h3 class="mcu-title">Paket Kardiologi & Jantung Sehat</h3>
+                    <p class="mcu-desc">Evaluasi komprehensif kesehatan sistem kardiovaskular mencakup EKG, treadmill test, konsultasi dokter spesialis jantung, dan profil lipid.</p>
+                    <div class="mcu-footer">
+                        <span class="mcu-price">Rp 1.850.000</span>
+                        <a href="buat-janji.html" class="btn-pesan">Pesan Paket</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paket Kanker -->
+            <div class="mcu-card" data-category="kanker" data-keywords="skrining kanker onkologi tumor marker">
+                <div class="mcu-card-body">
+                    <span class="mcu-tag" style="background:#fff3e0; color:#e65100;">Skrining Kanker</span>
+                    <h3 class="mcu-title">Paket Deteksi Dini Kanker (Onkologi)</h3>
+                    <p class="mcu-desc">Pemeriksaan penanda tumor (tumor marker) lengkap dan konsultasi ahli onkologi untuk pencegahan dan deteksi dini risiko keganasan.</p>
+                    <div class="mcu-footer">
+                        <span class="mcu-price">Rp 3.200.000</span>
+                        <a href="buat-janji.html" class="btn-pesan">Pesan Paket</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paket Pranikah -->
+            <div class="mcu-card" data-category="pranikah" data-keywords="skrining pranikah premarital check up pasangan">
+                <div class="mcu-card-body">
+                    <span class="mcu-tag" style="background:#e1f5fe; color:#0277bd;">Skrining Pranikah</span>
+                    <h3 class="mcu-title">Paket Premarital (Pranikah)</h3>
+                    <p class="mcu-desc">Pemeriksaan kesehatan bagi calon pengantin untuk mendeteksi penyakit menular, golongan darah, talasemia, dan kesehatan reproduksi.</p>
+                    <div class="mcu-footer">
+                        <span class="mcu-price">Rp 1.950.000</span>
+                        <a href="buat-janji.html" class="btn-pesan">Pesan Paket</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paket Umum -->
+            <div class="mcu-card" data-category="umum" data-keywords="skrining umum general check up silver basic">
+                <div class="mcu-card-body">
+                    <span class="mcu-tag">Skrining Umum</span>
+                    <h3 class="mcu-title">Paket General Check Up Basic</h3>
+                    <p class="mcu-desc">Pemeriksaan kesehatan rutin esensial mencakup cek darah lengkap, kolaborasi gula darah, asam urat, fungsi ginjal, dan konsultasi dokter umum.</p>
+                    <div class="mcu-footer">
+                        <span class="mcu-price">Rp 899.000</span>
+                        <a href="buat-janji.html" class="btn-pesan">Pesan Paket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../assets/js/global.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // --- 1. LOGIKA MODAL LOKASI AWAL ---
+            const modalLokasi = document.getElementById("modalAturLokasi");
+            const btnCloseModal = document.getElementById("btnCloseModal");
+            const rsDropdownWrapper = document.getElementById("rsDropdownWrapper");
+            const rsDropdownHeader = document.getElementById("rsDropdownHeader");
+            const rsItems = document.querySelectorAll(".rs-item");
+            const selectedRsText = document.getElementById("selectedRsText");
+            const rsSearchInput = document.getElementById("rsSearchInput");
+            
+            modalLokasi.style.display = "flex";
+
+            btnCloseModal.addEventListener("click", () => modalLokasi.style.display = "none");
+
+            rsDropdownHeader.addEventListener("click", function() {
+                rsDropdownWrapper.classList.toggle("active");
+            });
+
+            rsItems.forEach(item => {
+                item.addEventListener("click", function() {
+                    selectedRsText.innerText = this.innerText;
+                    selectedRsText.style.color = "#333";
+                    rsDropdownWrapper.classList.remove("active");
+                    setTimeout(() => modalLokasi.style.display = "none", 400);
+                });
+            });
+
+            rsSearchInput.addEventListener("input", function() {
+                const query = this.value.toLowerCase().trim();
+                rsItems.forEach(item => {
+                    item.style.display = item.innerText.toLowerCase().includes(query) ? "block" : "none";
+                });
+            });
+
+            // --- 2. LOGIKA FILTER KATEGORI (IKON GRID) ---
+            const catIconCards = document.querySelectorAll(".cat-icon-card");
+            const mcuCards = document.querySelectorAll(".mcu-card");
+            const searchInputMCU = document.getElementById("input-search-mcu");
+            const noMsg = document.getElementById("no-mcu-msg");
+
+            let activeCategory = "semua";
+
+            function filterPackages() {
+                const query = searchInputMCU.value.toLowerCase().trim();
+                let visibleCount = 0;
+
+                mcuCards.forEach(card => {
+                    const category = card.getAttribute("data-category");
+                    const keywords = card.getAttribute("data-keywords") || "";
+                    const textContent = card.innerText.toLowerCase();
+
+                    const matchCategory = (activeCategory === "semua" || category === activeCategory);
+                    const matchSearch = (keywords.includes(query) || textContent.includes(query));
+
+                    if (matchCategory && matchSearch) {
+                        card.style.display = "flex";
+                        visibleCount++;
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+                noMsg.style.display = visibleCount === 0 ? "block" : "none";
+            }
+
+            catIconCards.forEach(btn => {
+                btn.addEventListener("click", function() {
+                    catIconCards.forEach(b => b.classList.remove("active"));
+                    this.classList.add("active");
+                    activeCategory = this.getAttribute("data-category");
+                    filterPackages();
+                });
+            });
+
+            searchInputMCU.addEventListener("input", filterPackages);
+        });
+    </script>
+</body>
+</html>
