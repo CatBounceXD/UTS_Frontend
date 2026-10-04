@@ -3,12 +3,6 @@
     padding-bottom:80px;
 }
 
-.article-layout{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:50px;
-}
-
 .article-title{
     font-size:2.8rem;
     line-height:1.2;
@@ -27,10 +21,6 @@
 
 .article-author{
     margin-bottom:35px;
-}
-
-.article-content{
-    line-height:1.8;
 }
 
 .article-content h2{
@@ -80,6 +70,10 @@
     align-items:flex-start;
 }
 
+.doctor-card div{
+    flex:1;
+}
+
 .doctor-image{
     width:70px;
     height:70px;
@@ -111,12 +105,6 @@
    ARTICLE PAGE
 ========================= */
 
-
-
-.article-page{
-    padding:60px 0;
-}
-
 .article-layout{
     display:grid;
     grid-template-columns:2fr 1fr;
@@ -129,6 +117,7 @@
     border-radius:16px;
     padding:32px;
     box-shadow:0 2px 10px rgba(0,0,0,.08);
+    line-height:1.8;
 }
 
 .article-category{
@@ -167,6 +156,7 @@
 
 .article-hero-image img{
     width:100%;
+    height:400px;
     border-radius:12px;
     object-fit:cover;
 
@@ -190,6 +180,15 @@
 
 .toc li{
     margin-bottom:8px;
+}
+
+.toc a{
+    color:#0b4ea2;
+    text-decoration:none;
+}
+
+.toc a:hover{
+    text-decoration:underline;
 }
 
 .article-section{
