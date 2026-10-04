@@ -1,217 +1,290 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pusat Layanan Unggulan - Hospital</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pusat Layanan Unggulan - Hospital</title>
 
-    <link rel="stylesheet" href="../assets/css/global.css">
-    <link rel="stylesheet" href="../assets/css/PusatLayananUnggulan.css">
-</head>
-<body>
+        <link rel="stylesheet" href="../assets/css/global.css" />
+        <link rel="stylesheet" href="../assets/css/PusatLayananUnggulan.css" />
+    </head>
+    <body>
+        <div id="header-placeholder"></div>
 
-    <div id="header-placeholder"></div>
+        <main class="main-wrapper">
+            <div class="siloam-container">
+                <div id="dynamic-detail-page" style="display: none">
+                    <nav class="breadcrumb">
+                        <a href="../index.html">Beranda</a>
+                        <span class="sep">&rsaquo;</span>
+                        <a href="#" id="btn-back-dynamic"
+                            >Pusat Layanan Unggulan</a
+                        >
+                        <span class="sep">&rsaquo;</span>
+                        <span class="active" id="detail-breadcrumb-name"
+                            >Nama Spesialisasi</span
+                        >
+                    </nav>
 
-    <main class="main-wrapper">
-        <div class="siloam-container">
+                    <div class="detail-layout">
+                        <div class="detail-main">
+                            <p class="subtitle-grey">Pusat Layanan Unggulan</p>
+                            <h1 class="detail-title">
+                                <span class="icon" id="detail-icon"></span>
+                                <span id="detail-title-text">Judul</span>
+                            </h1>
+                            <a href="#" class="hospitals-link"
+                                >Tersedia di
+                                <span id="detail-hospital-count"></span> Rumah
+                                Sakit &rarr;</a
+                            >
 
-            <div id="dynamic-detail-page" style="display: none;">
+                            <p class="detail-desc">
+                                <span id="detail-desc-text"
+                                    >Deskripsi akan muncul di sini.</span
+                                >
+                                <a href="#" class="read-more"
+                                    >Baca Selengkapnya</a
+                                >
+                            </p>
+
+                            <div
+                                class="stats-grid"
+                                id="detail-stats-container"
+                            ></div>
+                        </div>
+
+                        <aside class="detail-sidebar">
+                            <div class="sidebar-card">
+                                <h3>Tautan Langsung</h3>
+                                <ul>
+                                    <li>
+                                        <a href="#"
+                                            >Temukan Dokter
+                                            <span style="color: #00a962"
+                                                >&rarr;</span
+                                            ></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            >Kisah Pasien
+                                            <span style="color: #00a962"
+                                                >&rarr;</span
+                                            ></a
+                                        >
+                                    </li>
+                                </ul>
+                                <div class="sidebar-contact">
+                                    <p>Butuh informasi lainnya?</p>
+                                    <a href="#">Hubungi Kami &rarr;</a>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+
+                <!-- BAGIAN YANG DIPERBAIKI -->
                 <nav class="breadcrumb">
                     <a href="../index.html">Beranda</a>
                     <span class="sep">&rsaquo;</span>
-                    <a href="#" id="btn-back-dynamic">Pusat Layanan Unggulan</a>
-                    <span class="sep">&rsaquo;</span>
-                    <span class="active" id="detail-breadcrumb-name">Nama Spesialisasi</span>
+                    <span class="active">Pusat Layanan Unggulan</span>
                 </nav>
 
-                <div class="detail-layout">
-                    <div class="detail-main">
-                        <p class="subtitle-grey">Pusat Layanan Unggulan</p>
-                        <h1 class="detail-title">
-                            <span class="icon" id="detail-icon"></span> 
-                            <span id="detail-title-text">Judul</span>
+                <section class="hero-card hero-light">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Pusat Layanan Unggulan Hospital
                         </h1>
-                        <a href="#" class="hospitals-link">Tersedia di <span id="detail-hospital-count"></span> Rumah Sakit &rarr;</a>
-
-                        <p class="detail-desc">
-                            <span id="detail-desc-text">Deskripsi akan muncul di sini.</span>
-                            <a href="#" class="read-more">Baca Selengkapnya</a>
+                        <p class="hero-desc">
+                            Perawatan pasien berstandar internasional,
+                            terintegrasi, komprehensif, dengan tenaga medis ahli
+                            dan fasilitas modern.
                         </p>
+                    </div>
+                    <div class="hero-media">
+                        <img
+                            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1200"
+                            alt="Dokter Spesialis Hospital"
+                        />
+                    </div>
+                </section>
 
-                        <div class="stats-grid" id="detail-stats-container">
+                <section class="hero-card hero-dark">
+                    <div class="hero-text">
+                        <span class="hero-subtitle"
+                            >Apa itu Pusat Layanan Unggulan</span
+                        >
+                        <h2 class="hero-title-dark">
+                            Pendekatan Holistik untuk Perawatan Pasien
+                        </h2>
+                        <p class="hero-desc-dark">
+                            Pusat Layanan Unggulan Hospital menghadirkan
+                            perawatan terpadu untuk menangani berbagai kondisi
+                            medis melalui kolaborasi tim dokter multidisiplin,
+                            teknologi medis modern, dan pendekatan yang berpusat
+                            pada pasien.
+                        </p>
+                        <p class="hero-desc-dark">
+                            Kami merancang perawatan yang disesuaikan secara
+                            personal, mengutamakan keselamatan, kenyamanan, dan
+                            efektivitas hasil bagi setiap pasien.
+                        </p>
+                    </div>
+                    <div class="hero-media">
+                        <img
+                            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200"
+                            alt="Pelayanan Pasien"
+                        />
+                    </div>
+                </section>
 
+                <section class="section-split">
+                    <div class="section-left">
+                        <h2>Temukan Pusat Layanan Unggulan Kami</h2>
+                    </div>
+                    <div class="section-right">
+                        <div class="specialty-grid">
+                            <a href="#" class="specialty-card">
+                                <div class="card-body">
+                                    <span class="card-icon red-icon">❤️</span>
+                                    <div class="card-text">
+                                        <h3>Jantung & Pembuluh Darah</h3>
+                                        <p>
+                                            Menangani berbagai gangguan pada
+                                            jantung dan pembuluh darah.
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="card-arrow">&rsaquo;</span>
+                            </a>
+
+                            <a href="#" class="specialty-card">
+                                <div class="card-body">
+                                    <span class="card-icon red-icon">🧠</span>
+                                    <div class="card-text">
+                                        <h3>Saraf & Bedah Saraf</h3>
+                                        <p>
+                                            Menangani berbagai gangguan otak,
+                                            sistem saraf, serta saraf tulang
+                                            belakang.
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="card-arrow">&rsaquo;</span>
+                            </a>
+
+                            <a href="#" class="specialty-card">
+                                <div class="card-body">
+                                    <span class="card-icon red-icon">🩺</span>
+                                    <div class="card-text">
+                                        <h3>Digestif</h3>
+                                        <p>
+                                            Menangani berbagai gangguan pada
+                                            sistem pencernaan.
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="card-arrow">&rsaquo;</span>
+                            </a>
+
+                            <a href="#" class="specialty-card">
+                                <div class="card-body">
+                                    <span class="card-icon purple-icon"
+                                        >🎗️</span
+                                    >
+                                    <div class="card-text">
+                                        <h3>Onkologi (Kanker)</h3>
+                                        <p>
+                                            Menangani berbagai jenis tumor dan
+                                            kanker.
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="card-arrow">&rsaquo;</span>
+                            </a>
+
+                            <a href="#" class="specialty-card">
+                                <div class="card-body">
+                                    <span class="card-icon red-icon">🫘</span>
+                                    <div class="card-text">
+                                        <h3>Ginjal & Saluran Kemih</h3>
+                                        <p>
+                                            Menangani berbagai gangguan sistem
+                                            kemih dan ginjal.
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="card-arrow">&rsaquo;</span>
+                            </a>
+
+                            <a href="#" class="specialty-card">
+                                <div class="card-body">
+                                    <span class="card-icon purple-icon"
+                                        >🦴</span
+                                    >
+                                    <div class="card-text">
+                                        <h3>Ortopedi</h3>
+                                        <p>
+                                            Menangani berbagai gangguan pada
+                                            tulang, otot, dan sendi.
+                                        </p>
+                                    </div>
+                                </div>
+                                <span class="card-arrow">&rsaquo;</span>
+                            </a>
+
+                            <a href="#" class="specialty-card card-half">
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        <h3>Spesialisasi Lainnya</h3>
+                                    </div>
+                                </div>
+                                <span class="card-arrow">&rsaquo;</span>
+                            </a>
                         </div>
                     </div>
+                </section>
 
-                    <aside class="detail-sidebar">
-                        <div class="sidebar-card">
-                            <h3>Tautan Langsung</h3>
-                            <ul>
-                                <li><a href="#">Temukan Dokter <span style="color:#00A962;">&rarr;</span></a></li>
-                                <li><a href="#">Kisah Pasien <span style="color:#00A962;">&rarr;</span></a></li>
-                            </ul>
-                            <div class="sidebar-contact">
-                                <p>Butuh informasi lainnya?</p>
-                                <a href="#">Hubungi Kami &rarr;</a>
-                            </div>
+                <section class="section-split section-border">
+                    <div class="section-left">
+                        <h2>Afiliasi Kami</h2>
+                    </div>
+                    <div class="section-right">
+                        <div class="affiliate-logos">
+                            <span class="logo-txt logo-gkci">GKCI</span>
+                            <span class="logo-txt logo-lippo">LIPPO</span>
+                            <span class="logo-txt logo-mrin">MRIN</span>
+                            <span class="logo-txt logo-uph">UPH</span>
                         </div>
-                    </aside>
-                </div>
+                    </div>
+                </section>
+
+                <section class="company-info-section">
+                    <p>
+                        PT International Hospitals Tbk (Hospital) merupakan
+                        jaringan rumah sakit swasta terbesar yang menyediakan
+                        fasilitas layanan kesehatan berupa rumah sakit dan
+                        klinik di berbagai kota di Indonesia. Dengan lebih dari
+                        41 cabang rumah sakit dan 25 klinik, Hospital menjangkau
+                        setiap kalangan dengan fasilitas lengkap dan tenaga
+                        medis profesional yang siap memberikan pelayanan medis
+                        berkualitas dan berstandar internasional.
+                    </p>
+                    <a href="#" class="link-more">Lihat Lebih Banyak</a>
+                </section>
             </div>
+        </main>
 
-                <a href="../index.html">Beranda</a>
-                <span class="sep">&rsaquo;</span>
-                <span class="active">Pusat Layanan Unggulan</span>
-            </nav>
+        <div id="footer-placeholder"></div>
 
-            <section class="hero-card hero-light">
-                <div class="hero-text">
-                    <h1 class="hero-title">Pusat Layanan Unggulan Hospital</h1>
-                    <p class="hero-desc">
-                        Perawatan pasien berstandar internasional, terintegrasi, komprehensif, dengan tenaga medis ahli dan fasilitas modern.
-                    </p>
-                </div>
-                <div class="hero-media">
-                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1200" alt="Dokter Spesialis Hospital">
-                </div>
-            </section>
-
-            <section class="hero-card hero-dark">
-                <div class="hero-text">
-                    <span class="hero-subtitle">Apa itu Pusat Layanan Unggulan</span>
-                    <h2 class="hero-title-dark">Pendekatan Holistik untuk Perawatan Pasien</h2>
-                    <p class="hero-desc-dark">
-                        Pusat Layanan Unggulan Hospital menghadirkan perawatan terpadu untuk menangani berbagai kondisi medis melalui kolaborasi tim dokter multidisiplin, teknologi medis modern, dan pendekatan yang berpusat pada pasien.
-                    </p>
-                    <p class="hero-desc-dark">
-                        Kami merancang perawatan yang disesuaikan secara personal, mengutamakan keselamatan, kenyamanan, dan efektivitas hasil bagi setiap pasien.
-                    </p>
-                </div>
-                <div class="hero-media">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200" alt="Pelayanan Pasien">
-                </div>
-            </section>
-
-            <section class="section-split">
-                <div class="section-left">
-                    <h2>Temukan Pusat Layanan Unggulan Kami</h2>
-                </div>
-                <div class="section-right">
-                    <div class="specialty-grid">
-
-                        <a href="#" class="specialty-card">
-                            <div class="card-body">
-                                <span class="card-icon red-icon">❤️</span>
-                                <div class="card-text">
-                                    <h3>Jantung & Pembuluh Darah</h3>
-                                    <p>Menangani berbagai gangguan pada jantung dan pembuluh darah.</p>
-                                </div>
-                            </div>
-                            <span class="card-arrow">&rsaquo;</span>
-                        </a>
-
-                        <a href="#" class="specialty-card">
-                            <div class="card-body">
-                                <span class="card-icon red-icon">🧠</span>
-                                <div class="card-text">
-                                    <h3>Saraf & Bedah Saraf</h3>
-                                    <p>Menangani berbagai gangguan otak, sistem saraf, serta saraf tulang belakang.</p>
-                                </div>
-                            </div>
-                            <span class="card-arrow">&rsaquo;</span>
-                        </a>
-
-                        <a href="#" class="specialty-card">
-                            <div class="card-body">
-                                <span class="card-icon red-icon">🩺</span>
-                                <div class="card-text">
-                                    <h3>Digestif</h3>
-                                    <p>Menangani berbagai gangguan pada sistem pencernaan.</p>
-                                </div>
-                            </div>
-                            <span class="card-arrow">&rsaquo;</span>
-                        </a>
-
-                        <a href="#" class="specialty-card">
-                            <div class="card-body">
-                                <span class="card-icon purple-icon">🎗️</span>
-                                <div class="card-text">
-                                    <h3>Onkologi (Kanker)</h3>
-                                    <p>Menangani berbagai jenis tumor dan kanker.</p>
-                                </div>
-                            </div>
-                            <span class="card-arrow">&rsaquo;</span>
-                        </a>
-
-                        <a href="#" class="specialty-card">
-                            <div class="card-body">
-                                <span class="card-icon red-icon">🫘</span>
-                                <div class="card-text">
-                                    <h3>Ginjal & Saluran Kemih</h3>
-                                    <p>Menangani berbagai gangguan sistem kemih dan ginjal.</p>
-                                </div>
-                            </div>
-                            <span class="card-arrow">&rsaquo;</span>
-                        </a>
-
-                        <a href="#" class="specialty-card">
-                            <div class="card-body">
-                                <span class="card-icon purple-icon">🦴</span>
-                                <div class="card-text">
-                                    <h3>Ortopedi</h3>
-                                    <p>Menangani berbagai gangguan pada tulang, otot, dan sendi.</p>
-                                </div>
-                            </div>
-                            <span class="card-arrow">&rsaquo;</span>
-                        </a>
-
-                        <a href="#" class="specialty-card card-half">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    <h3>Spesialisasi Lainnya</h3>
-                                </div>
-                            </div>
-                            <span class="card-arrow">&rsaquo;</span>
-                        </a>
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-split section-border">
-                <div class="section-left">
-                    <h2>Afiliasi Kami</h2>
-                </div>
-                <div class="section-right">
-                    <div class="affiliate-logos">
-                        <span class="logo-txt logo-gkci">GKCI</span>
-                        <span class="logo-txt logo-lippo">LIPPO</span>
-                        <span class="logo-txt logo-mrin">MRIN</span>
-                        <span class="logo-txt logo-uph">UPH</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="company-info-section">
-                <p>
-                    PT International Hospitals Tbk (Hospital) merupakan jaringan rumah sakit swasta terbesar yang menyediakan fasilitas layanan kesehatan berupa rumah sakit dan klinik di berbagai kota di Indonesia. Dengan lebih dari 41 cabang rumah sakit dan 25 klinik, Hospital menjangkau setiap kalangan dengan fasilitas lengkap dan tenaga medis profesional yang siap memberikan pelayanan medis berkualitas dan berstandar internasional.
-                </p>
-                <a href="#" class="link-more">Lihat Lebih Banyak</a>
-            </section>
-
-        </div>
-    </main>
-
-    <div id="footer-placeholder"></div>
-
-    <script src="../assets/js/global.js"></script>
-    <script src="../assets/js/PusatLayananUnggulan.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        loadComponent("header-placeholder", "../header.html");
-        loadComponent("footer-placeholder", "../footer.html");
-    });
-    </script>
-
-</body>
+        <script src="../assets/js/global.js"></script>
+        <script src="../assets/js/PusatLayananUnggulan.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                loadComponent("header-placeholder", "../header.html");
+                loadComponent("footer-placeholder", "../footer.html");
+            });
+        </script>
+    </body>
 </html>

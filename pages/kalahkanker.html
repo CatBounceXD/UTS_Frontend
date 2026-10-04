@@ -4,12 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pusat Kanker Terpadu - E-Health</title>
-        <!-- Memanggil global CSS dari luar folder pages -->
         <link rel="stylesheet" href="../assets/css/global.css" />
         <link rel="stylesheet" href="../assets/css/kalahkanker.css" />
     </head>
     <body>
-        <!-- WADAH NAVBAR -->
         <div id="header-placeholder"></div>
 
         <main style="padding-top: 0">
@@ -39,10 +37,8 @@
                 />
             </section>
 
-            <!-- 2. PUSAT UNGGULAN ONKOLOGI -->
             <section class="section-white" style="margin-top: 3rem">
                 <div class="container section-split">
-                    <!-- Teks Kiri -->
                     <div
                         class="section-left animate-on-scroll"
                         style="
@@ -61,7 +57,6 @@
                         </p>
                     </div>
 
-                    <!-- Grid Kartu Kanan -->
                     <div
                         class="section-right card-grid"
                         style="
@@ -142,7 +137,6 @@
                 </div>
             </section>
 
-            <!-- 3. CARI TAHU LEBIH LANJUT TENTANG PROSEDUR LANJUTAN -->
             <section>
                 <div class="container" style="text-align: center">
                     <h2
@@ -204,11 +198,8 @@
                 </div>
             </section>
 
-            <!-- 4. MEDICAL CHECK UP KANKER -->
-            <!-- 4. MEDICAL CHECK UP KANKER -->
             <section class="section-white">
                 <div class="container">
-                    <!-- Header Fleksibel dengan Tombol Pill -->
                     <div class="section-header-flex animate-on-scroll">
                         <h2 style="font-size: 2.2rem; margin: 0">
                             Medical Check Up<br />Kanker
@@ -222,7 +213,6 @@
                             "
                         >
                             <div class="pill-container" style="margin-top: 0">
-                                <!-- Tambahkan onclick dan ID pada tombol -->
                                 <button
                                     id="btn-organ"
                                     class="pill active"
@@ -251,11 +241,7 @@
                         </div>
                     </div>
 
-                    <!-- ============================================== -->
-                    <!-- TAB 1: BERDASARKAN ORGAN (Tampil di awal)      -->
-                    <!-- ============================================== -->
                     <div id="tab-organ" class="card-slider">
-                        <!-- Kartu MCU 1 -->
                         <div class="card card-pricing animate-on-scroll">
                             <h4>Kanker Hati<br />Komprehensif</h4>
                             <div class="price-label">Mulai dari</div>
@@ -281,7 +267,6 @@
                             >
                         </div>
 
-                        <!-- Kartu MCU 2 -->
                         <div class="card card-pricing animate-on-scroll">
                             <h4>Kanker Hati Tingkat<br />Lanjut</h4>
                             <div class="price-label">Mulai dari</div>
@@ -308,7 +293,6 @@
                             >
                         </div>
 
-                        <!-- Kartu MCU 3 -->
                         <div class="card card-pricing animate-on-scroll">
                             <h4>Kanker Kolorektal<br />Komprehensif</h4>
                             <div class="price-label">Mulai dari</div>
@@ -333,7 +317,6 @@
                             >
                         </div>
 
-                        <!-- Kartu MCU 4 -->
                         <div class="card card-pricing animate-on-scroll">
                             <h4>Kanker Kolorektal<br />Tingkat Lanjut</h4>
                             <div class="price-label">Mulai dari</div>
@@ -360,16 +343,11 @@
                         </div>
                     </div>
 
-                    <!-- ============================================== -->
-                    <!-- TAB 2: SELURUH TUBUH (Sembunyi di awal)        -->
-                    <!-- ============================================== -->
-                    <!-- Perhatikan style="display: none;" agar slider ini tersembunyi saat halaman dimuat -->
                     <div
                         id="tab-tubuh"
                         class="card-slider"
                         style="display: none"
                     >
-                        <!-- Kartu Seluruh Tubuh 1 -->
                         <div class="card card-pricing animate-on-scroll">
                             <h4>
                                 Kanker Seluruh Tubuh (Pria)<br />Komprehensif
@@ -408,7 +386,6 @@
                             >
                         </div>
 
-                        <!-- Kartu Seluruh Tubuh 2 -->
                         <div class="card card-pricing animate-on-scroll">
                             <h4>
                                 Kanker Seluruh Tubuh (Pria)<br />Tingkat Lanjut
@@ -447,7 +424,6 @@
                             >
                         </div>
 
-                        <!-- Kartu Seluruh Tubuh 3 -->
                         <div class="card card-pricing animate-on-scroll">
                             <h4>
                                 Kanker Seluruh Tubuh (Wanita)<br />Komprehensif
@@ -486,7 +462,6 @@
                             >
                         </div>
 
-                        <!-- Kartu Seluruh Tubuh 4 -->
                         <div class="card card-pricing animate-on-scroll">
                             <h4>
                                 Kanker Seluruh Tubuh (Wanita)<br />Tingkat
@@ -530,41 +505,31 @@
             </section>
         </main>
 
-        <!-- WADAH FOOTER -->
         <div id="footer-placeholder"></div>
 
-        <!-- JS dari luar folder pages -->
         <script src="../assets/js/global.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                // Memanggil file header dan footer
                 loadComponent("header-placeholder", "../header.html");
                 loadComponent("footer-placeholder", "../footer.html");
             });
 
-            // FUNGSI UNTUK MENGUBAH TAB MEDICAL CHECK UP
             function gantiTab(tabYangDipilih) {
-                // 1. Ambil elemen tombol dan elemen slider-nya
                 const btnOrgan = document.getElementById("btn-organ");
                 const btnTubuh = document.getElementById("btn-tubuh");
                 const tabOrgan = document.getElementById("tab-organ");
                 const tabTubuh = document.getElementById("tab-tubuh");
 
-                // 2. Logika pergantian
                 if (tabYangDipilih === "organ") {
-                    // Aktifkan tombol Organ, matikan tombol Tubuh
                     btnOrgan.classList.add("active");
                     btnTubuh.classList.remove("active");
 
-                    // Tampilkan slider Organ, sembunyikan slider Tubuh
                     tabOrgan.style.display = "flex";
                     tabTubuh.style.display = "none";
                 } else {
-                    // Aktifkan tombol Tubuh, matikan tombol Organ
                     btnTubuh.classList.add("active");
                     btnOrgan.classList.remove("active");
 
-                    // Tampilkan slider Tubuh, sembunyikan slider Organ
                     tabTubuh.style.display = "flex";
                     tabOrgan.style.display = "none";
                 }
