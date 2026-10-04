@@ -1,0 +1,228 @@
+.breadcrumb {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.breadcrumb strong {
+    color: #000;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    color: #333;
+    font-weight: bold;
+}
+
+.contact-card {
+    background-color: var(--white);
+    border: 1px solid var(--brand-peach);
+    border-radius: 12px;
+    padding: 1.5rem;
+    flex: 1;
+    min-width: 280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.contact-card:hover {
+    border-color: var(--brand-dark);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+}
+
+.contact-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.contact-info {
+    flex-grow: 1;
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.contact-info h4 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: #222;
+}
+
+.contact-arrow {
+    color: var(--brand-peach);
+}
+
+.contact-bottom {
+    border-top: 1px solid var(--brand-cream);
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--brand-dark);
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.topic-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: var(--white);
+    border: 1px solid var(--brand-cream);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.topic-card:hover {
+    border-color: var(--brand-peach);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+
+.topic-icon {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    color: var(--brand-dark);
+}
+
+.topic-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.topic-text {
+    flex-grow: 1;
+}
+
+.topic-text h3 {
+    font-size: 1.1rem;
+    color: #222;
+    margin: 0 0 0.25rem 0;
+}
+
+.topic-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.topic-arrow {
+    color: var(--brand-peach);
+}
+
+.banner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-banner {
+    position: relative;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--brand-cream);
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+}
+
+.info-banner-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.info-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #f8f9fa 45%, rgba(248, 249, 250, 0.9) 60%, transparent 100%);
+    z-index: 2;
+}
+
+.info-banner-content {
+    position: relative;
+    z-index: 3;
+    padding: 2.5rem;
+    max-width: 70%;
+}
+
+.info-banner-content h3 {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 0.8rem;
+}
+
+.info-banner-content p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.info-banner-link {
+    font-weight: bold;
+    color: var(--brand-dark);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.info-banner-link:hover {
+    color: var(--brand-gray);
+}
+
+@media (max-width: 768px) {
+    .topic-grid, .banner-grid {
+        grid-template-columns: 1fr;
+    }
+    .info-banner-overlay {
+        background: linear-gradient(to right, #f8f9fa 65%, rgba(248, 249, 250, 0.9) 80%, transparent 100%);
+    }
+    .info-banner-content {
+        max-width: 100%;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+}
