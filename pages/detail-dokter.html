@@ -187,8 +187,10 @@
 
     <script src="../assets/js/global.js"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+            loadComponent("header-placeholder", "../header.html");
+            loadComponent("footer-placeholder", "../footer.html");
             const params = new URLSearchParams(window.location.search);
             const nama = params.get('nama');
             const spesialis = params.get('spesialis');

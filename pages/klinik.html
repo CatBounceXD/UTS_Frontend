@@ -1,237 +1,885 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospitals di Indonesia</title>
-    
-    <link rel="stylesheet" href="../assets/css/global.css">
-    <link rel="stylesheet" href="../assets/css/klinik.css">
-</head>
-<body>
-    <div id="header-placeholder"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hospitals di Indonesia</title>
 
-    <main>
-        <div class="container" style="padding-bottom: 1rem;">
-            <p><a href="#">Beranda</a> &gt; <strong>Klinik</strong></p>
-        </div>
+        <link rel="stylesheet" href="../assets/css/global.css" />
+        <link rel="stylesheet" href="../assets/css/klinik.css" />
+    </head>
+    <body>
+        <div id="header-placeholder"></div>
 
-        <section class="container" style="padding-top: 0; padding-bottom: 2rem;">
-            <div style="position: relative; width: 100%; height: 350px; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #333;">
-            
-                <img src="../assets/images/klinik1.jpeg" alt="Background Klinik Siloam" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: brightness(0.5);" />
-                
-                <div style="position: relative; z-index: 2; text-align: center; padding: 0 20px;">
-                    <h2 style="color: #ffffff; font-size: 3rem; margin: 0; font-weight: bold; letter-spacing: 1px;">HOSPITALS DI INDONESIA</h2>
-                </div>
+        <main>
+            <div class="container" style="padding-bottom: 1rem">
+                <p><a href="#">Beranda</a> &gt; <strong>Klinik</strong></p>
             </div>
-        </section>
 
-        <section class="section-white">
-            <div class="container text-center">
-                <div style="width: 100%; height: 500px; border-radius: 12px; overflow: hidden; border: 1px solid var(--brand-peach); background-color: var(--brand-cream);">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15843460.849933619!2d113.921327!3d-0.789275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-        </section>
+            <section
+                class="container"
+                style="padding-top: 0; padding-bottom: 2rem"
+            >
+                <div
+                    style="
+                        position: relative;
+                        width: 100%;
+                        height: 350px;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #333;
+                    "
+                >
+                    <img
+                        src="../assets/images/klinik1.jpeg"
+                        alt="Background Klinik Siloam"
+                        style="
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            z-index: 1;
+                            filter: brightness(0.5);
+                        "
+                    />
 
-        <section class="container" style="padding-top: 3rem;">
-            
-            <div class="search-container" style="width: 100%; max-width: 600px; margin: 0 auto 2rem auto; border: 1px solid var(--brand-peach);">
-                <input type="text" id="cariKlinik" class="search-input" placeholder="Cari klinik berdasarkan nama..." style="width: 100%;" />
-                <button class="search-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brand-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
-            </div>
-            <div class="card-grid" id="klinikGrid">
-                
-                <div class="card">
-                    <div class="card-title">Hospitals Bogor Selatan</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> Jl. Pahlawan No. 77A Kelurahan Empang, Kecamatan Bogor Selatan</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Senin - Jumat: 09.00 - 19.00 WIB</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-8629-163</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: 0133B041</p>
+                    <div
+                        style="
+                            position: relative;
+                            z-index: 2;
+                            text-align: center;
+                            padding: 0 20px;
+                        "
+                    >
+                        <h2
+                            style="
+                                color: #ffffff;
+                                font-size: 3rem;
+                                margin: 0;
+                                font-weight: bold;
+                                letter-spacing: 1px;
+                            "
+                        >
+                            HOSPITALS DI INDONESIA
+                        </h2>
                     </div>
                 </div>
-                
-                <div class="card">
-                    <div class="card-title">Hospitals  Meikarta</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> District 1 Meikarta No.005A, Jl. MH. Thamrin Lippo Cikarang Desa Cibatu Cikarang Selatan – Bekasi</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 17.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-8695-537</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: 0132B189</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Mertanadi</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> Jl Mertanadi No.4C Kuta, Badung, Bali</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 17.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-8695-498</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: 0227B039</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Bona Indah</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> Ruko Bona Indah Bisnis Centre B1 No.8K, Jl Karang Tengah Raya, Lebak Bulus, Jaksel</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8595</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: 0112B140</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Cisoka</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> Jl. Cisoka Taman Adiyasa, Kp. Kapudang, Sukatani, Kec. Cisoka, Banten</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8047</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: 0221B231</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Daan Mogot</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> Komplek Perum Daan Mogot Baru Blok 3A, Kel. Kali Deres, Jakarta Barat</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: 0115B060</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Blok M</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 7]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Bangka</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 8]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Bandung</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 9]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Depok</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 10]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Tebet</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 11]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Jember</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 12]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Purwakarta</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 13]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Bekasi</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 14]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Lampung</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 15]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Manado</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 16]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">Hospitals Padang</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📍</span> [Alamat Lengkap Klinik 17]</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab: 09.00 - 15.00</p>
-                        <p style="margin-bottom: 0.5rem; display: flex; gap: 8px;"><span>📞</span> 0811-1907-8597</p>
-                        <p style="margin-bottom: 0; display: flex; gap: 8px;"><span>🏥</span> Kode Faskes: [Kode Faskes]</p>
-                    </div>
-                </div>
+            </section>
 
-            </div>
-        </section>
-    </main>
+            <section class="section-white">
+                <div class="container text-center">
+                    <div
+                        style="
+                            width: 100%;
+                            height: 500px;
+                            border-radius: 12px;
+                            overflow: hidden;
+                            border: 1px solid var(--brand-peach);
+                            background-color: var(--brand-cream);
+                        "
+                    >
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15843460.849933619!2d113.921327!3d-0.789275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid"
+                            width="100%"
+                            height="100%"
+                            style="border: 0"
+                            allowfullscreen=""
+                            loading="lazy"
+                        >
+                        </iframe>
+                    </div>
+                </div>
+            </section>
 
-    <div id="footer-placeholder"></div>
-    <script src="../assets/js/global.js"></script>
+            <section class="container" style="padding-top: 3rem">
+                <div
+                    class="search-container"
+                    style="
+                        width: 100%;
+                        max-width: 600px;
+                        margin: 0 auto 2rem auto;
+                        border: 1px solid var(--brand-peach);
+                    "
+                >
+                    <input
+                        type="text"
+                        id="cariKlinik"
+                        class="search-input"
+                        placeholder="Cari klinik berdasarkan nama..."
+                        style="width: 100%"
+                    />
+                    <button class="search-btn">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--brand-dark)"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-grid" id="klinikGrid">
+                    <div class="card">
+                        <div class="card-title">Hospitals Bogor Selatan</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> Jl. Pahlawan No. 77A Kelurahan
+                                Empang, Kecamatan Bogor Selatan
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Senin - Jumat: 09.00 - 19.00 WIB
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-8629-163
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: 0133B041
+                            </p>
+                        </div>
+                    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const searchInput = document.getElementById("cariKlinik");
-            const cards = document.querySelectorAll("#klinikGrid .card");
+                    <div class="card">
+                        <div class="card-title">Hospitals Meikarta</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> District 1 Meikarta No.005A, Jl.
+                                MH. Thamrin Lippo Cikarang Desa Cibatu Cikarang
+                                Selatan – Bekasi
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 17.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-8695-537
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: 0132B189
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Mertanadi</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> Jl Mertanadi No.4C Kuta, Badung,
+                                Bali
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 17.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-8695-498
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: 0227B039
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Bona Indah</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> Ruko Bona Indah Bisnis Centre B1
+                                No.8K, Jl Karang Tengah Raya, Lebak Bulus,
+                                Jaksel
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8595
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: 0112B140
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Cisoka</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> Jl. Cisoka Taman Adiyasa, Kp.
+                                Kapudang, Sukatani, Kec. Cisoka, Banten
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8047
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: 0221B231
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Daan Mogot</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> Komplek Perum Daan Mogot Baru
+                                Blok 3A, Kel. Kali Deres, Jakarta Barat
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: 0115B060
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Blok M</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 7]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Bangka</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 8]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Bandung</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 9]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Depok</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 10]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Tebet</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 11]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Jember</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 12]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Purwakarta</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 13]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Bekasi</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 14]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Lampung</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 15]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Manado</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 16]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hospitals Padang</div>
+                        <div class="card-body">
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📍</span> [Alamat Lengkap Klinik 17]
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🕒</span> Sen - Jum: 09.00 - 19.00 | Sab:
+                                09.00 - 15.00
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0.5rem;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>📞</span> 0811-1907-8597
+                            </p>
+                            <p
+                                style="
+                                    margin-bottom: 0;
+                                    display: flex;
+                                    gap: 8px;
+                                "
+                            >
+                                <span>🏥</span> Kode Faskes: [Kode Faskes]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-            if (searchInput) {
-                searchInput.addEventListener("input", function (e) {
-                    const keyword = e.target.value.toLowerCase();
-                    cards.forEach(card => {
-                        const text = card.textContent.toLowerCase();
-                        if (text.includes(keyword)) {
-                            card.style.display = "flex"; 
-                        } else {
-                            card.style.display = "none";
-                        }
+        <div id="footer-placeholder"></div>
+        <script src="../assets/js/global.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                loadComponent("header-placeholder", "../header.html");
+                loadComponent("footer-placeholder", "../footer.html");
+                const searchInput = document.getElementById("cariKlinik");
+                const cards = document.querySelectorAll("#klinikGrid .card");
+
+                if (searchInput) {
+                    searchInput.addEventListener("input", function (e) {
+                        const keyword = e.target.value.toLowerCase();
+                        cards.forEach((card) => {
+                            const text = card.textContent.toLowerCase();
+                            if (text.includes(keyword)) {
+                                card.style.display = "flex";
+                            } else {
+                                card.style.display = "none";
+                            }
+                        });
                     });
-                });
-            }
-        });
-    </script>
-</body>
+                }
+            });
+        </script>
+    </body>
 </html>

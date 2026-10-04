@@ -72,6 +72,8 @@
     <script src="../assets/js/global.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            loadComponent("header-placeholder", "../header.html");
+            loadComponent("footer-placeholder", "../footer.html");
             const params = new URLSearchParams(window.location.search);
             if(params.get('nama')) document.getElementById("sum-name").innerText = params.get('nama') + " (" + params.get('spesialis') + ")";
             if(params.get('lokasi')) document.getElementById("sum-loc").innerText = "📍 " + params.get('lokasi');
