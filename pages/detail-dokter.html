@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Profil Dokter - Hospitals</title>
+    
+    <link rel="stylesheet" href="../assets/css/global.css">
+    
+    <style>
+        body { background-color: #f8f9fa; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: #666; margin-bottom: 2rem; padding-top: 1rem; }
+        .breadcrumb a { color: #666; text-decoration: none; }
+        .breadcrumb a:hover { color: var(--brand-dark); text-decoration: underline; }
+        .breadcrumb span { color: #ccc; }
+        .breadcrumb .current { color: var(--brand-dark); font-weight: 500; }
+
+        .profile-container { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; margin-bottom: 4rem; }
+        .profile-main { display: flex; flex-direction: column; gap: 2.5rem; }
+        .doctor-header-large { display: flex; align-items: center; gap: 1.5rem; }
+
+        .doctor-avatar-large {
+            width: 140px; height: 140px; border-radius: 50%;
+            background-color: #1a2a5e; display: flex; justify-content: center; align-items: center;
+            overflow: hidden; flex-shrink: 0; border: 4px solid var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .doctor-avatar-large img { width: 100%; height: 100%; object-fit: cover; }
+
+        .doctor-info-large h1 { font-size: 2.2rem; color: var(--brand-dark); margin-bottom: 0.2rem; font-weight: bold; }
+        .doctor-info-large p { font-size: 1.2rem; color: #666; margin: 0; }
+
+        .content-block h2 { font-size: 1.4rem; color: var(--brand-dark); margin-bottom: 1rem; font-weight: bold; }
+        .content-block p { font-size: 1rem; color: #444; line-height: 1.7; text-align: justify; }
+
+        .location-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid #ddd; cursor: pointer; user-select: none; }
+        .location-header-title { display: flex; align-items: center; gap: 1rem; font-weight: 500; font-size: 1.1rem; color: var(--brand-dark); }
+        
+        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .collapsible-content.open { max-height: 500px; }
+
+        .schedule-regular-table { width: 100%; margin-top: 1rem; border-collapse: collapse; }
+        .schedule-regular-table td { padding: 0.6rem 0; font-size: 0.95rem; color: #444; border-bottom: 1px solid #f0f0f0; }
+        .schedule-regular-table td:last-child { text-align: right; font-weight: 500; color: var(--brand-dark); }
+
+        .sidebar-right { position: sticky; top: 100px; }
+        .booking-card { background-color: var(--white); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #eee; }
+        .booking-card-body { padding: 1.5rem; }
+        
+        .booking-card-header-toggle { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+        .booking-collapsible { max-height: 600px; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .booking-collapsible.closed { max-height: 0; }
+
+        .hospital-info-box { display: flex; gap: 1rem; background: #f9f9f9; padding: 0.8rem; border-radius: 8px; margin: 1.2rem 0; border: 1px solid #eee; }
+        .hospital-info-box img { width: 50px; height: 50px; border-radius: 6px; object-fit: cover; }
+        .hospital-info-box h4 { font-size: 0.9rem; color: var(--brand-dark); margin: 0 0 0.2rem 0; }
+        .hospital-info-box p { font-size: 0.75rem; color: #666; margin: 0; line-height: 1.3; }
+
+        .date-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-bottom: 1.2rem; }
+        .date-pill { border: 1px solid #28a745; color: #28a745; border-radius: 50px; padding: 0.5rem 0.2rem; text-align: center; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease; background: #fff; }
+        .date-pill:hover, .date-pill.active { background-color: #28a745; color: #fff; }
+        .date-pill.more { border-color: #1a2a5e; color: #1a2a5e; }
+        .date-pill.more:hover { background-color: #1a2a5e; color: #fff; }
+
+        .time-slot-box { border: 1px solid #ddd; border-radius: 8px; padding: 0.8rem; text-align: center; font-weight: 500; color: var(--brand-dark); background: #fff; cursor: pointer; margin-bottom: 0.8rem; transition: all 0.2s; }
+        .time-slot-box:hover { border-color: #28a745; color: #28a745; }
+
+        .booking-card-footer { background-color: #1a2a5e; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .booking-card-footer p { color: var(--white); font-size: 0.85rem; margin: 0; line-height: 1.4; flex: 1; }
+        .btn-pilih-jadwal { background-color: var(--white); color: var(--brand-dark); border: none; padding: 0.7rem 1.5rem; border-radius: 6px; font-weight: bold; cursor: pointer; white-space: nowrap; }
+        
+        .arrow-icon { color: #28a745; font-weight: bold; font-size: 1.2rem; transition: transform 0.3s ease; }
+        .arrow-icon.rotated { transform: rotate(180deg); }
+
+        @media (max-width: 900px) {
+            .profile-container { grid-template-columns: 1fr; }
+            .sidebar-right { position: static; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <div class="container">
+            
+            <div class="breadcrumb animate-on-scroll">
+                <a href="#">Beranda</a> <span>›</span>
+                <a href="cari-dokter.html">Dokter</a> <span>›</span>
+                <span class="current" id="breadcrumb-name">Profil Dokter</span>
+            </div>
+
+            <div class="profile-container">
+                
+                <div class="profile-main animate-on-scroll">
+                    
+                    <div class="doctor-header-large content-block">
+                        <div class="doctor-avatar-large" id="avatar-container">
+                            <img id="doc-img" src="" alt="Foto Dokter">
+                        </div>
+                        <div class="doctor-info-large">
+                            <h1 id="doc-name">Nama Dokter</h1>
+                            <p id="doc-spec">Spesialisasi</p>
+                        </div>
+                    </div>
+
+                    <hr style="border: none; border-top: 2px solid #eee; margin: 0;">
+
+                    <div class="content-block">
+                        <h2>Jadwal & Buat Janji Temu</h2>
+                        <div class="location-header" id="left-accordion-btn">
+                            <div class="location-header-title" id="doc-loc-text">
+                                <span>📍</span> Hospitals
+                            </div>
+                            <span class="arrow-icon" id="left-arrow">∨</span>
+                        </div>
+
+                        <div class="collapsible-content open" id="left-collapsible">
+                            <div style="padding-top: 1rem;">
+                                <h3 style="font-size: 1.1rem; color: var(--brand-dark); margin-bottom: 0.5rem;">Jadwal Regular</h3>
+                                <table class="schedule-regular-table">
+                                    <tr><td>Minggu</td><td>06:00 - 23:30</td></tr>
+                                    <tr><td>Senin</td><td>06:00 - 23:30</td></tr>
+                                    <tr><td>Selasa</td><td>06:00 - 23:30</td></tr>
+                                    <tr><td>Rabu</td><td>06:00 - 23:30</td></tr>
+                                    <tr><td>Kamis</td><td>06:00 - 23:30</td></tr>
+                                    <tr><td>Jumat</td><td>06:00 - 23:30</td></tr>
+                                    <tr><td>Sabtu</td><td>06:00 - 23:30</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h2>Profil Dokter</h2>
+                        <p id="doc-desc">Dokter spesialis berpengalaman yang berpraktik di jaringan Hospitals, siap memberikan pelayanan medis terbaik dan profesional untuk kesehatan Anda.</p>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-right animate-on-scroll">
+                    <div class="booking-card">
+                        <div class="booking-card-body">
+                            <div class="booking-card-header-toggle" id="right-accordion-btn">
+                                <h3 style="margin: 0; font-size: 1.1rem;">Jadwal & Buat Janji Temu</h3>
+                                <span class="arrow-icon rotated" id="right-arrow">∨</span>
+                            </div>
+                            
+                            <div class="booking-collapsible" id="right-collapsible">
+                                <div class="hospital-info-box">
+                                    <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=100&q=80" alt="RS">
+                                    <div>
+                                        <h4 id="box-hospital-name">Hospitals</h4>
+                                        <p>Jl. Jaringan Kesehatan No. 1, Jakarta</p>
+                                    </div>
+                                </div>
+
+                                <div class="date-grid">
+                                    <div class="date-pill active">Min, 04 Okt</div>
+                                    <div class="date-pill">Sen, 05 Okt</div>
+                                    <div class="date-pill">Sel, 06 Okt</div>
+                                    <div class="date-pill">Rab, 07 Okt</div>
+                                    <div class="date-pill">Kam, 08 Okt</div>
+                                    <div class="date-pill">Jum, 09 Okt</div>
+                                    <div class="date-pill">Sab, 10 Okt</div>
+                                    <div class="date-pill more">📅 Lainnya</div>
+                                </div>
+
+                                <p style="font-size: 0.9rem; font-weight: 600; color: var(--brand-dark); margin-bottom: 0.5rem;">Waktu</p>
+                                <div class="time-slot-box">06:00 - 06:15</div>
+                            </div>
+                        </div>
+
+                        <div class="booking-card-footer">
+                            <p>Silahkan pilih jadwal/ikuti instruksi untuk membuat janji temu</p>
+                            <button class="btn-pilih-jadwal" id="btn-konfirmasi-jadwal">Pilih Jadwal</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../assets/js/global.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+            loadComponent("header-placeholder", "../header.html");
+            loadComponent("footer-placeholder", "../footer.html");
+            const params = new URLSearchParams(window.location.search);
+            const nama = params.get('nama');
+            const spesialis = params.get('spesialis');
+            const lokasi = params.get('lokasi');
+            const img = params.get('img');
+
+            if (nama) {
+                document.getElementById("doc-name").innerText = nama;
+                document.getElementById("page-title").innerText = nama + " - Hospitals";
+                document.getElementById("breadcrumb-name").innerText = nama;
+            }
+            if (spesialis) {
+                document.getElementById("doc-spec").innerText = spesialis;
+                document.getElementById("doc-desc").innerText = `${nama} adalah seorang Dokter Spesialis ${spesialis} yang berpraktik di ${lokasi || 'Hospitals'}. Beliau berdedikasi tinggi memberikan penanganan medis terbaik sesuai bidang keahliannya.`;
+            }
+            if (lokasi) {
+                document.getElementById("doc-loc-text").innerHTML = `<span>📍</span> ${lokasi}`;
+                document.getElementById("box-hospital-name").innerText = lokasi;
+            }
+            if (img) {
+                document.getElementById("doc-img").src = img;
+            }
+
+            // Accordion Kiri
+            const leftBtn = document.getElementById("left-accordion-btn");
+            const leftContent = document.getElementById("left-collapsible");
+            const leftArrow = document.getElementById("left-arrow");
+            leftBtn.addEventListener("click", function() {
+                leftContent.classList.toggle("open");
+                leftArrow.classList.toggle("rotated");
+            });
+
+            // Accordion Kanan
+            const rightBtn = document.getElementById("right-accordion-btn");
+            const rightContent = document.getElementById("right-collapsible");
+            const rightArrow = document.getElementById("right-arrow");
+            rightBtn.addEventListener("click", function() {
+                rightContent.classList.toggle("closed");
+                rightArrow.classList.toggle("rotated");
+            });
+
+            // Pill Tanggal
+            const pills = document.querySelectorAll(".date-pill");
+            pills.forEach(pill => {
+                pill.addEventListener("click", function() {
+                    pills.forEach(p => p.classList.remove("active"));
+                    if(!this.classList.contains("more")) {
+                        this.classList.add("active");
+                    }
+                });
+            });
+
+            // Tombol Konfirmasi ke Halaman Buat Janji
+            document.getElementById("btn-konfirmasi-jadwal").addEventListener("click", function() {
+                const docName = document.getElementById("doc-name").innerText;
+                const specDoc = document.getElementById("doc-spec").innerText;
+                const locDoc = document.getElementById("box-hospital-name").innerText;
+
+                window.location.href = `buat-janji.html?nama=${encodeURIComponent(docName)}&spesialis=${encodeURIComponent(specDoc)}&lokasi=${encodeURIComponent(locDoc)}`;
+            });
+        });
+    </script>
+</body>
+</html>

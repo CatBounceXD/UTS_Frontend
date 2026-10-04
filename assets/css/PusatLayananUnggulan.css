@@ -1,0 +1,368 @@
+.main-wrapper {
+    background-color: #ffffff;
+    padding-bottom: 3rem;
+}
+
+.siloam-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 0;
+    font-size: 0.88rem;
+    color: #64748b;
+}
+
+.breadcrumb a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: #0d47a1;
+}
+
+.breadcrumb .sep {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.breadcrumb .active {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.hero-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch;
+    width: 100%;
+    min-height: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.hero-text {
+    flex: 1 1 50% !important;
+    padding: 3.5rem 3rem !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.hero-media {
+    flex: 1 1 50% !important;
+    height: 100%;
+    min-height: 420px;
+}
+
+.hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-light {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0;
+}
+
+.hero-title {
+    font-size: 2.4rem !important;
+    font-weight: 700;
+    color: #002855 !important;
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.3px;
+}
+
+.hero-desc {
+    font-size: 0.98rem !important;
+    color: #64748b !important;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.hero-dark {
+    background: #000000 !important;
+    color: #ffffff;
+}
+
+.hero-subtitle {
+    font-size: 0.88rem;
+    color: #a0aec0;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.hero-title-dark {
+    font-size: 2.1rem !important;
+    font-weight: 700;
+    color: #ffffff !important;
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+}
+
+.hero-desc-dark {
+    font-size: 0.95rem !important;
+    color: #e2e8f0 !important;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+}
+
+.hero-desc-dark:last-child {
+    margin-bottom: 0;
+}
+
+.section-split {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: flex-start;
+    margin-bottom: 3.5rem;
+    padding-top: 1rem;
+}
+
+.section-left {
+    flex: 0 0 30%;
+}
+
+.section-left h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #002855;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.section-right {
+    flex: 1 1 70%;
+}
+
+.specialty-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.specialty-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.specialty-card:hover {
+    border-color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(13, 71, 161, 0.08);
+}
+
+.card-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.card-text h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #002855;
+    margin: 0 0 0.3rem 0;
+}
+
+.card-text p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.card-arrow {
+    font-size: 1.5rem;
+    color: #002855;
+    font-weight: 700;
+}
+
+.card-half {
+    grid-column: span 1;
+}
+
+.section-border {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 2.5rem;
+}
+
+.affiliate-logos {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.logo-txt {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.logo-gkci { color: #dc2626; }
+.logo-lippo { color: #0284c7; font-style: italic; }
+.logo-mrin { color: #475569; }
+.logo-uph { color: #2563eb; }
+
+.company-info-section {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.company-info-section p {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    max-width: 1050px;
+}
+
+.link-more {
+    font-size: 0.88rem;
+    color: #0284c7;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.floating-buttons-group {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 9999;
+}
+
+.float-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.float-btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-second-opinion {
+    background-color: #22c55e;
+    color: #ffffff;
+}
+
+.btn-lets-chat {
+    background-color: #1e3a8a;
+    color: #ffffff;
+}
+
+@media (max-width: 992px) {
+    .hero-card, .section-split {
+        flex-direction: column !important;
+    }
+    .specialty-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-text {
+        padding: 2.5rem 1.5rem !important;
+    }
+    .hero-title {
+        font-size: 1.8rem !important;
+    }
+}
+
+ #dynamic-detail-page { animation: fadeIn 0.3s ease-in-out; font-family: sans-serif; }
+        .detail-layout { display: flex; gap: 40px; margin-top: 20px; align-items: flex-start; flex-wrap: wrap; }
+        .detail-main { flex: 1 1 60%; }
+        .detail-sidebar { flex: 1 1 30%; }
+        .subtitle-grey { color: #888; font-size: 1.1rem; margin-bottom: 5px; font-weight: 500; }
+        .detail-title { font-size: 2.2rem; color: #1a202c; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .hospitals-link { color: #00A962; text-decoration: none; font-size: 0.95rem; display: inline-block; margin-bottom: 25px; font-weight: bold; }
+        .detail-desc { font-size: 1.05rem; color: #4a5568; line-height: 1.7; margin-bottom: 30px; }
+        .read-more { color: #1e3a8a; font-weight: bold; text-decoration: none; display: block; margin-top: 10px; }
+        
+        .stats-grid { display: flex; gap: 40px; margin-bottom: 50px; border-top: 1px solid #e2e8f0; padding-top: 25px; flex-wrap: wrap; }
+        .stat-item h2 { font-size: 2.5rem; color: #1e3a8a; margin-bottom: 5px; font-weight: 700; }
+        .stat-item p { color: #718096; font-size: 0.95rem; max-width: 150px; line-height: 1.4;}
+        
+        .sidebar-card { background-color: #f8fafc; border-radius: 12px; padding: 30px; }
+        .sidebar-card h3 { font-size: 1.3rem; color: #1e3a8a; margin-bottom: 20px; }
+        .sidebar-card ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar-card ul li { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
+        .sidebar-card ul li a { text-decoration: none; color: #4a5568; display: flex; justify-content: space-between; }
+        .sidebar-card ul li a:hover { color: #1e3a8a; }
+        .sidebar-contact { margin-top: 25px; }
+        .sidebar-contact p { font-size: 0.9rem; color: #a0aec0; margin-bottom: 5px; }
+        .sidebar-contact a { text-decoration: none; color: #00A962; font-weight: bold; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .specialty-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.card-text h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.card-text p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.card-arrow {
+    font-size: 1.5rem;
+    color: #00A962;
+    font-weight: bold;
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lokasi Hospitals</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/rumahsakitkami.css">
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main class="container">
+
+    <nav class="breadcrumb">
+      <a href="#">Beranda</a>
+      <i class="fa-solid fa-chevron-right text-xs"></i>
+      <a href="#">Pusat Informasi</a>
+      <i class="fa-solid fa-chevron-right text-xs"></i>
+      <span>Lokasi Rumah Sakit</span>
+    </nav>
+
+    <section class="page-header animate-on-scroll">
+      <h1>Lokasi Rumah Sakit</h1>
+      <p>
+        Temukan berbagai layanan kesehatan berkualitas yang tersebar di seluruh
+        Indonesia melalui daftar Klinik & Hospitals. Nikmati pelayanan
+        unggul dan fasilitas modern untuk kesehatan optimal bagi Anda dan keluarga.
+      </p>
+    </section>
+
+    <div class="banner-split animate-on-scroll">
+
+      <div class="banner-content">
+        <h2>Di Setiap Ketepatan, Hadir Keyakinan</h2>
+        <p>
+          Layanan kesehatan profesional dengan teknologi terkini dan dokter
+          spesialis berpengalaman.
+        </p>
+
+        <div>
+          <button
+            class="btn btn-outline"
+            style="border-color: var(--white); color: var(--white);"
+          >
+            Booking Dokter di Sini
+          </button>
+        </div>
+      </div>
+
+      <div class="banner-image">
+        <img
+          src="../assets/images/Hospital.jpg"
+          alt="Hospital Banner"
+        >
+      </div>
+
+    </div>
+
+    <section class="filter-section animate-on-scroll">
+
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
+
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control"
+          style="padding-left: 2.5rem;"
+          placeholder="Cari nama atau area rumah sakit..."
+        >
+      </div>
+
+      <div class="filter-dropdowns">
+
+        <div class="select-group">
+          <label class="form-label">Spesialisasi</label>
+
+          <div class="select-wrapper">
+            <select id="specialtySelect" class="form-control">
+              <option value="">Semua Spesialisasi</option>
+              <option value="Umum">Umum</option>
+              <option value="Jantung">Jantung & Pembuluh Darah</option>
+              <option value="Kanker">Onkologi (Kanker)</option>
+              <option value="Anak">Kesehatan Anak</option>
+              <option value="Tulang">Tulang & Sendi (Ortopedi)</option>
+            </select>
+
+            <i class="fa-solid fa-chevron-down select-icon"></i>
+          </div>
+        </div>
+
+        <div class="select-group">
+          <label class="form-label">Kota / Lokasi</label>
+
+          <div class="select-wrapper">
+            <select id="citySelect" class="form-control">
+              <option value="">Semua Lokasi</option>
+              <option value="Jakarta">Jakarta</option>
+              <option value="Tangerang">Tangerang</option>
+              <option value="Bekasi">Bekasi</option>
+              <option value="Bogor">Bogor</option>
+              <option value="Surabaya">Surabaya</option>
+              <option value="Bali">Bali</option>
+              <option value="Makassar">Makassar</option>
+              <option value="Medan">Medan</option>
+              <option value="Palembang">Palembang</option>
+              <option value="Balikpapan">Balikpapan</option>
+              <option value="Manado">Manado</option>
+              <option value="Purwakarta">Purwakarta</option>
+              <option value="Kupang">Kupang</option>
+              <option value="Jambi">Jambi</option>
+              <option value="Magelang">Magelang</option>
+            </select>
+
+            <i class="fa-solid fa-chevron-down select-icon"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="results-count">
+      Menampilkan
+      <strong id="resultCountNumber">18</strong>
+      hasil
+    </div>
+
+    <section
+      class="card-grid animate-on-scroll"
+      id="hospitalGrid"
+    ></section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../assets/js/global.js"></script>
+  <script src="../assets/js/rumahsakitkami.js"></script>
+
+</body>
+</html>

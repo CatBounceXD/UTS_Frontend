@@ -1,0 +1,231 @@
+.page-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+.header-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb strong {
+    color: var(--brand-dark);
+    font-weight: 600;
+}
+
+.header-text h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--brand-dark);
+}
+
+.header-text p {
+    color: var(--brand-gray);
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.header-filter {
+    min-width: 200px;
+}
+
+.hero-story {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-story-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-story-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+    z-index: 2;
+}
+
+.hero-story-content {
+    position: relative;
+    z-index: 3;
+    padding: 3rem;
+    color: var(--white);
+    max-width: 800px;
+}
+
+.story-badge {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: var(--brand-cream);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-story-content h2 {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.story-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.story-author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.story-author span {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--brand-peach);
+    border-radius: 12px;
+    height: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(69, 40, 41, 0.15);
+    border-color: var(--brand-dark);
+}
+
+.testimonial-card p.quote {
+    font-size: 0.95rem;
+    color: var(--brand-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.testimonial-divider {
+    border: 0;
+    border-top: 1px solid var(--brand-cream);
+    margin-bottom: 1rem;
+}
+
+.testimonial-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-condition {
+    font-size: 0.8rem;
+    color: var(--brand-gray);
+    opacity: 0.8;
+    margin-bottom: 0.2rem;
+}
+
+.testimonial-name {
+    font-size: 0.95rem;
+    color: var(--brand-dark);
+    font-weight: 600;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image-card {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 350px;
+    border: 1px solid var(--brand-peach);
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+.cta-banner {
+    background-color: var(--brand-cream);
+    padding: 4rem 0;
+    margin-top: 3rem;
+    border-radius: 12px;
+    border: 1px solid var(--brand-peach);
+}
+
+.cta-content h2 {
+    font-size: 2.2rem;
+    color: var(--brand-dark);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.cta-content p {
+    font-size: 1rem;
+    color: var(--brand-gray);
+    margin-bottom: 2rem;
+}
+
+.btn-custom-outline {
+    border: 2px solid var(--brand-dark);
+    color: var(--brand-dark);
+    background: transparent;
+    padding: 0.6rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-custom-outline:hover {
+    background: var(--brand-dark);
+    color: var(--white);
+}
