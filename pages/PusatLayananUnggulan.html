@@ -15,55 +15,14 @@
     <main class="main-wrapper">
         <div class="siloam-container">
 
-            <div id="dynamic-detail-page" style="display: none;">
-                <nav class="breadcrumb">
-                    <a href="../index.html">Beranda</a>
-                    <span class="sep">&rsaquo;</span>
-                    <a href="#" id="btn-back-dynamic">Pusat Layanan Unggulan</a>
-                    <span class="sep">&rsaquo;</span>
-                    <span class="active" id="detail-breadcrumb-name">Nama Spesialisasi</span>
-                </nav>
-
-                <div class="detail-layout">
-                    <div class="detail-main">
-                        <p class="subtitle-grey">Pusat Layanan Unggulan</p>
-                        <h1 class="detail-title">
-                            <span class="icon" id="detail-icon"></span> 
-                            <span id="detail-title-text">Judul</span>
-                        </h1>
-                        <a href="#" class="hospitals-link">Tersedia di <span id="detail-hospital-count"></span> Rumah Sakit &rarr;</a>
-
-                        <p class="detail-desc">
-                            <span id="detail-desc-text">Deskripsi akan muncul di sini.</span>
-                            <a href="#" class="read-more">Baca Selengkapnya</a>
-                        </p>
-
-                        <div class="stats-grid" id="detail-stats-container">
-
-                        </div>
-                    </div>
-
-                    <aside class="detail-sidebar">
-                        <div class="sidebar-card">
-                            <h3>Tautan Langsung</h3>
-                            <ul>
-                                <li><a href="#">Temukan Dokter <span style="color:#00A962;">&rarr;</span></a></li>
-                                <li><a href="#">Kisah Pasien <span style="color:#00A962;">&rarr;</span></a></li>
-                            </ul>
-                            <div class="sidebar-contact">
-                                <p>Butuh informasi lainnya?</p>
-                                <a href="#">Hubungi Kami &rarr;</a>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb">
                 <a href="../index.html">Beranda</a>
                 <span class="sep">&rsaquo;</span>
                 <span class="active">Pusat Layanan Unggulan</span>
             </nav>
 
+            <!-- Hero Section 1 -->
             <section class="hero-card hero-light">
                 <div class="hero-text">
                     <h1 class="hero-title">Pusat Layanan Unggulan Hospital</h1>
@@ -76,6 +35,7 @@
                 </div>
             </section>
 
+            <!-- Hero Section 2 -->
             <section class="hero-card hero-dark">
                 <div class="hero-text">
                     <span class="hero-subtitle">Apa itu Pusat Layanan Unggulan</span>
@@ -92,16 +52,16 @@
                 </div>
             </section>
 
+            <!-- Section Kartu Layanan Unggulan -->
             <section class="section-split">
                 <div class="section-left">
                     <h2>Temukan Pusat Layanan Unggulan Kami</h2>
                 </div>
                 <div class="section-right">
                     <div class="specialty-grid">
-
-                        <a href="#" class="specialty-card">
+                        <a href="jantung.html" class="specialty-card">
                             <div class="card-body">
-                                <span class="card-icon red-icon">❤️</span>
+                                <span class="card-icon red-icon">🫀</span>
                                 <div class="card-text">
                                     <h3>Jantung & Pembuluh Darah</h3>
                                     <p>Menangani berbagai gangguan pada jantung dan pembuluh darah.</p>
@@ -110,7 +70,7 @@
                             <span class="card-arrow">&rsaquo;</span>
                         </a>
 
-                        <a href="#" class="specialty-card">
+                        <a href="saraf.html" class="specialty-card">
                             <div class="card-body">
                                 <span class="card-icon red-icon">🧠</span>
                                 <div class="card-text">
@@ -121,7 +81,7 @@
                             <span class="card-arrow">&rsaquo;</span>
                         </a>
 
-                        <a href="#" class="specialty-card">
+                        <a href="digestif.html" class="specialty-card">
                             <div class="card-body">
                                 <span class="card-icon red-icon">🩺</span>
                                 <div class="card-text">
@@ -132,7 +92,7 @@
                             <span class="card-arrow">&rsaquo;</span>
                         </a>
 
-                        <a href="#" class="specialty-card">
+                        <a href="onkologi.html" class="specialty-card">
                             <div class="card-body">
                                 <span class="card-icon purple-icon">🎗️</span>
                                 <div class="card-text">
@@ -143,7 +103,7 @@
                             <span class="card-arrow">&rsaquo;</span>
                         </a>
 
-                        <a href="#" class="specialty-card">
+                        <a href="ginjal.html" class="specialty-card">
                             <div class="card-body">
                                 <span class="card-icon red-icon">🫘</span>
                                 <div class="card-text">
@@ -154,7 +114,7 @@
                             <span class="card-arrow">&rsaquo;</span>
                         </a>
 
-                        <a href="#" class="specialty-card">
+                        <a href="ortopedi.html" class="specialty-card">
                             <div class="card-body">
                                 <span class="card-icon purple-icon">🦴</span>
                                 <div class="card-text">
@@ -173,11 +133,11 @@
                             </div>
                             <span class="card-arrow">&rsaquo;</span>
                         </a>
-
                     </div>
                 </div>
             </section>
 
+            <!-- Section Afiliasi -->
             <section class="section-split section-border">
                 <div class="section-left">
                     <h2>Afiliasi Kami</h2>
@@ -192,6 +152,7 @@
                 </div>
             </section>
 
+            <!-- Section Informasi Perusahaan -->
             <section class="company-info-section">
                 <p>
                     PT International Hospitals Tbk (Hospital) merupakan jaringan rumah sakit swasta terbesar yang menyediakan fasilitas layanan kesehatan berupa rumah sakit dan klinik di berbagai kota di Indonesia. Dengan lebih dari 41 cabang rumah sakit dan 25 klinik, Hospital menjangkau setiap kalangan dengan fasilitas lengkap dan tenaga medis profesional yang siap memberikan pelayanan medis berkualitas dan berstandar internasional.
@@ -205,7 +166,6 @@
     <div id="footer-placeholder"></div>
 
     <script src="../assets/js/global.js"></script>
-    <script src="../assets/js/PusatLayananUnggulan.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         loadComponent("header-placeholder", "../header.html");
