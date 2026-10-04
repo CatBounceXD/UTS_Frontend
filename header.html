@@ -1,36 +1,42 @@
 <div id="header-placeholder">
     <header class="header-shadow">
-        <!-- Menggunakan kelas nav-extended untuk membagi 3 area (Logo, Menu, Search) -->
         <nav class="nav-extended">
             
-            <!-- Area 1: Logo Placeholder -->
+            <!-- Area 1: Logo -->
             <div class="logo">
-                <h2><span style="color: var(--brand-peach);">E-</span>Health</h2>
+                <h2><span style="color: var(--brand-peach);">Hospitals</span></h2>
             </div>
     
-            <!-- Area 2: Menu Navigasi Utama -->
-            <ul class="nav-links">
-                <li><a href="cari-dokter.html" target="_blank">Cari Dokter</a></li>
-                <li><a href="layanan-kesehatan.html" target="_blank">Layanan Kesehatan <span class="arrow">&#9662;</span></a></li>
-                <li><a href="second-opinion.html" target="_blank">Second Opinion</a></li>
-                <!-- Contoh menu yang sedang aktif (Active) -->
-                <li><a href="pusat-layanan-unggulan.html" target="_blank">Pusat Layanan Unggulan</a></li>
-                <li><a href="spesialis.html" target="_blank">Spesialis</a></li>
-                <li><a href="informasi.html" target="_blank">Informasi <span class="arrow">&#9662;</span></a></li>
-            </ul>
-    
-            <!-- Area 3: Kolom Pencarian -->
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Cari di E-Health">
-                <button class="search-btn" aria-label="Cari">
-                    <!-- BAHAYA INI --> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#2e7d32" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                </button>
+            <!-- TOMBOL HAMBURGER (Akan disembunyikan di layar laptop) -->
+            <button class="hamburger" aria-label="Buka Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- WADAH MENU (Membungkus link dan search agar mudah disembunyikan di HP) -->
+            <div class="nav-menu-wrapper">
+                <!-- Area 2: Menu Navigasi Utama -->
+                <ul class="nav-links">
+                    <li><a href="cari-dokter.html" target="_blank">Cari Dokter</a></li>
+                    <li><a href="layanan-kesehatan.html" target="_blank">Layanan Kesehatan <span class="arrow">&#9662;</span></a></li>
+                    <li><a href="second-opinion.html" target="_blank">Second Opinion</a></li>
+                    <li><a href="pusat-layanan-unggulan.html" target="_blank">Pusat Layanan Unggulan</a></li>
+                    <li><a href="spesialis.html" target="_blank">Spesialis</a></li>
+                    <li><a href="informasi.html" target="_blank">Informasi <span class="arrow">&#9662;</span></a></li>
+                </ul>
+        
+                <!-- Area 3: Kolom Pencarian -->
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Cari di Hospitals">
+                    <button class="search-btn" aria-label="Cari">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#2e7d32" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
     
         </nav>
     </header>
-
 </div>

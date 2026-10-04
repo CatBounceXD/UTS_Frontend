@@ -883,3 +883,88 @@ textarea.form-control {
     color: var(--brand-dark); /* Warna teks menjadi gelap */
     font-weight: bold;
 }
+
+/* Wadah Menu untuk Desktop (Tetap sejajar menyamping) */
+.nav-menu-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-grow: 1;
+    justify-content: flex-end; /* Mendorong menu ke kanan */
+}
+
+/* Gaya Dasar Tombol Hamburger (Disembunyikan di Desktop) */
+.hamburger {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101; /* Pastikan tombol selalu di lapisan paling atas */
+}
+
+/* Tiga garis pada tombol hamburger */
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--white);
+    transition: var(--transition);
+    border-radius: 3px;
+}
+
+@media (max-width: 992px) {
+    /* Munculkan tombol hamburger */
+    .hamburger {
+        display: block; 
+    }
+
+    /* Ubah wadah menu menjadi mode sidebar (tersembunyi di kiri) */
+    .nav-menu-wrapper {
+        position: absolute;
+        top: 100%; /* Mulai tepat di bawah batas header */
+        left: -100%; /* Sembunyikan sepenuhnya ke sisi kiri layar */
+        flex-direction: column; /* Ubah orientasi dari menyamping jadi menurun */
+        align-items: flex-start;
+        background-color: var(--brand-dark);
+        width: 100%;
+        padding: 2rem;
+        transition: left 0.4s ease; /* Animasi bergeser mulus */
+        box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Saat kelas .active ditambahkan oleh JavaScript, menu akan muncul */
+    .nav-menu-wrapper.active {
+        left: 0; 
+    }
+
+    /* Perbaikan susunan menu di mode HP */
+    .nav-links {
+        flex-direction: column; /* Menu menurun ke bawah */
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Perbaikan agar kotak pencarian melebar penuh di HP */
+    .search-container {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    /* ANIMASI HAMBURGER MENJADI TANDA "X" SAAT AKTIF */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0; /* Garis tengah menghilang */
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg); /* Garis atas miring ke bawah */
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg); /* Garis bawah miring ke atas */
+    }
+}
