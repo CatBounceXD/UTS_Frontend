@@ -1,8 +1,8 @@
 const hospitalsData = [
   {
     id: 1,
-    name: "Rumah Sakit Umum Siloam Lippo Village",
-    address: "Jl. Siloam No. 6, Lippo Karawaci 1600 Tangerang 15811",
+    name: "Hospitals Lippo Village",
+    address: "Jl. Hospitals No. 6, Lippo Karawaci 1600 Tangerang 15811",
     city: "Tangerang",
     specialty: "Jantung",
     image: "../assets/images/Hospital.jpg",
@@ -21,7 +21,7 @@ const hospitalsData = [
 
   {
     id: 3,
-    name: "MRCCC Siloam Hospitals Semanggi",
+    name: "Hospitals Semanggi",
     address: "Jl. Garnisun Dalam No. 2-3 Semanggi, 12930",
     city: "Jakarta",
     specialty: "Kanker",
@@ -31,7 +31,7 @@ const hospitalsData = [
 
   {
     id: 4,
-    name: "Siloam Hospitals Kebon Jeruk",
+    name: "Hospitals Kebon Jeruk",
     address: "Jl. Raya Pejuangan Kav. 8, Kebon Jeruk, Jakarta 11530",
     city: "Jakarta",
     specialty: "Tulang",
@@ -41,7 +41,7 @@ const hospitalsData = [
 
   {
     id: 5,
-    name: "Siloam Hospitals TB Simatupang",
+    name: "Hospitals TB Simatupang",
     address: "Jl. R.A. Kartini Kav. 8, Cilandak, Jakarta 12430",
     city: "Jakarta",
     specialty: "Jantung",
@@ -51,7 +51,7 @@ const hospitalsData = [
 
   {
     id: 6,
-    name: "Siloam Hospitals Surabaya",
+    name: "Hospitals Surabaya",
     address: "Jl. Raya Gubeng No. 70, Surabaya 60281",
     city: "Surabaya",
     specialty: "Umum",
@@ -61,7 +61,7 @@ const hospitalsData = [
 
   {
     id: 7,
-    name: "Siloam Hospitals Denpasar",
+    name: "Hospitals Denpasar",
     address: "Jl. Sunset Road No. 818, Kuta, Kabupaten Badung, Bali 80361",
     city: "Bali",
     specialty: "Umum",
@@ -71,7 +71,7 @@ const hospitalsData = [
 
   {
     id: 8,
-    name: "Siloam Hospitals Makassar",
+    name: "Hospitals Makassar",
     address: "Jl. Metro Tanjung Bunga Kav. 9, Makassar 90112",
     city: "Makassar",
     specialty: "Umum",
@@ -81,7 +81,7 @@ const hospitalsData = [
 
   {
     id: 9,
-    name: "Siloam Hospitals Balikpapan",
+    name: "Hospitals Balikpapan",
     address: "Jl. MT Haryono No. 9, Ring Road, Balikpapan 76114",
     city: "Balikpapan",
     specialty: "Umum",
@@ -91,7 +91,7 @@ const hospitalsData = [
 
   {
     id: 10,
-    name: "Siloam Hospitals Medan",
+    name: "ospitals Medan",
     address: "Jl. Imam Bonjol No. 6, Medan 20112",
     city: "Medan",
     specialty: "Umum",
@@ -101,7 +101,7 @@ const hospitalsData = [
 
   {
     id: 11,
-    name: "Siloam Hospitals Palembang",
+    name: "Hospitals Palembang",
     address: "Jl. POM IX, Lorok Pakjo, Palembang 30137",
     city: "Palembang",
     specialty: "Umum",
@@ -111,7 +111,7 @@ const hospitalsData = [
 
   {
     id: 12,
-    name: "Siloam Hospitals Bogor",
+    name: "Hospitals Bogor",
     address: "Jl. Pajajaran No. 27, Babakan, Bogor Tengah 16128",
     city: "Bogor",
     specialty: "Anak",
@@ -121,7 +121,7 @@ const hospitalsData = [
 
   {
     id: 13,
-    name: "Siloam Hospitals Bekasi Timur",
+    name: "Hospitals Bekasi Timur",
     address: "Jl. Chairil Anwar No. 27, Margahayu, Bekasi 17113",
     city: "Bekasi",
     specialty: "Jantung",
@@ -131,7 +131,7 @@ const hospitalsData = [
 
   {
     id: 14,
-    name: "Siloam Hospitals Cikarang",
+    name: "Hospitals Cikarang",
     address: "Jl. MH. Thamrin Kav. 105, Lippo Cikarang, Bekasi 17550",
     city: "Bekasi",
     specialty: "Kanker",
@@ -141,7 +141,7 @@ const hospitalsData = [
 
   {
     id: 15,
-    name: "Siloam Hospitals Purwakarta",
+    name: "Hospitals Purwakarta",
     address: "Jl. Bungursari No. 1, Purwakarta 41181",
     city: "Purwakarta",
     specialty: "Umum",
@@ -151,7 +151,7 @@ const hospitalsData = [
 
   {
     id: 16,
-    name: "Siloam Hospitals Jambi",
+    name: "Hospitals Jambi",
     address: "Jl. Soekarno-Hatta, Paal Merah, Jambi 36139",
     city: "Jambi",
     specialty: "Umum",
@@ -161,7 +161,7 @@ const hospitalsData = [
 
   {
     id: 17,
-    name: "Siloam Hospitals Kupang",
+    name: "Hospitals Kupang",
     address: "Jl. R. W. Monginsidi, Fatululi, Oebobo, Kupang 85111",
     city: "Kupang",
     specialty: "Umum",
@@ -171,7 +171,7 @@ const hospitalsData = [
 
   {
     id: 18,
-    name: "Siloam Hospitals Manado",
+    name: "Hospitals Manado",
     address: "Jl. Sam Ratulangi No. 22, Wenang, Manado 95111",
     city: "Manado",
     specialty: "Umum",

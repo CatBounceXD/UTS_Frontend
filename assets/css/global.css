@@ -184,7 +184,7 @@ footer {
     color: var(--brand-cream);
     text-align: center;
     padding: 2rem 0;
-    margin-top: auto; /* Mendorong footer agar selalu di bawah */
+    margin-top: auto; 
 }
 
 footer.footer-modern {
@@ -198,7 +198,7 @@ footer.footer-modern {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     padding: 3rem 1.5rem;
-    text-align: left; /* Mengubah rata tengah menjadi rata kiri agar rapi */
+    text-align: left;
 }
 
 .footer-col h3, .footer-col h4 {
@@ -230,12 +230,11 @@ footer.footer-modern {
 .footer-col ul li a:hover {
     color: var(--white);
     opacity: 1;
-    padding-left: 5px; /* Efek bergeser sedikit saat di-hover */
+    padding-left: 5px;
 }
 
-/* Baris paling bawah (Hak Cipta) */
 .footer-bottom {
-    background-color: rgba(0, 0, 0, 0.2); /* Warna sedikit lebih gelap dari header */
+    background-color: rgba(0, 0, 0, 0.2); 
     text-align: center;
     padding: 1rem 0;
     font-size: 0.9rem;
@@ -245,7 +244,6 @@ footer.footer-modern {
     margin: 0;
 }
 
-/* WADAH (CONTAINER) */
 .container {
     width: 100%;
     max-width: 1440px;
@@ -253,15 +251,12 @@ footer.footer-modern {
     padding: 0 1.5rem;
 }
 
-/* Container lebih sempit, cocok untuk halaman form Login/Register/Baca Artikel */
 .container-sm {
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
-
-/* KARTU (CARDS) */
 
 .card-grid {
     display: grid;
@@ -431,7 +426,7 @@ footer.footer-modern {
     color: var(--brand-gray);
 }
 
-/* TOMBOL (BUTTONS) */
+/* BUTTON */
 
 .btn {
     display: inline-block;
@@ -489,7 +484,6 @@ footer.footer-modern {
 
 /* VARIASI CONTAINER & BANNER */
 
-/* Banner Besar (Split Teks & Gambar) */
 .banner-split {
     display: flex;
     flex-wrap: wrap;
@@ -688,13 +682,9 @@ textarea.form-control {
     transform: translateY(0);
 }
 
-/* =========================================
-   14. STRUKTUR HALAMAN UTAMA (SPLIT LAYOUT)
-   ========================================= */
-/* Membagi area menjadi kiri (teks) dan kanan (konten) */
 .section-split {
     display: flex;
-    flex-wrap: wrap; /* Otomatis turun ke bawah jika di layar HP */
+    flex-wrap: wrap;
     gap: 3rem;
     align-items: flex-start;
 }
@@ -705,14 +695,10 @@ textarea.form-control {
 }
 
 .section-right {
-    flex: 3; /* Sisi kanan mengambil porsi lebih besar */
+    flex: 3;
     min-width: 300px;
 }
 
-/* =========================================
-   15. ELEMEN KHUSUS HOMEPAGE
-   ========================================= */
-/* Baris Statistik (Angka & Teks) di bawah Banner */
 .stats-row {
     display: flex;
     justify-content: space-between;
@@ -742,9 +728,6 @@ textarea.form-control {
     line-height: 1.2;
 }
 
-/* =========================================
-   KARTU KOTAK PERSEGI (DENGAN IKON & PANAH)
-   ========================================= */
 .card-square {
     background-color: var(--brand-dark);
     color: var(--white);
@@ -752,9 +735,9 @@ textarea.form-control {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Memastikan semua elemen rata ke kiri */
+    align-items: flex-start;
     transition: var(--transition);
-    height: 100%; /* Memastikan tinggi kartu seragam di dalam grid */
+    height: 100%;
 }
 
 .card-square:hover {
@@ -762,15 +745,13 @@ textarea.form-control {
     background-color: var(--brand-gray);
 }
 
-/* Pengaturan Ikon Utama di Sudut Kiri Atas */
 .card-square-icon {
     width: 48px;
     height: 48px;
-    margin-bottom: 1.5rem; /* Memberikan jarak ke angka di bawahnya */
-    object-fit: contain; /* Memastikan ikon tidak berantakan rasionya */
+    margin-bottom: 1.5rem;
+    object-fit: contain;
 }
 
-/* Pengaturan Angka Besar */
 .card-square h3 {
     color: var(--white);
     font-size: 2.5rem;
@@ -778,7 +759,6 @@ textarea.form-control {
     line-height: 1;
 }
 
-/* Tombol Lonjong (Pills) untuk Topik Populer */
 .pill-container {
     display: flex;
     flex-wrap: wrap;
@@ -802,31 +782,25 @@ textarea.form-control {
     color: var(--white);
 }
 
-/* =========================================
-   16. SLIDER KARTU HORIZONTAL (TANPA JS)
-   ========================================= */
 .card-slider {
     display: flex;
     gap: 1.5rem;
-    overflow-x: auto; /* Kunci utama: memunculkan scrollbar horizontal jika konten melebihi layar */
-    flex-wrap: nowrap; /* Memaksa kartu berbaris ke samping, mencegahnya turun ke bawah */
-    padding-bottom: 1.5rem; /* Memberikan ruang agar bayangan (shadow) kartu tidak terpotong */
-    
-    /* Fitur modern: Membuat pergeseran berhenti rapi di setiap kartu (seperti efek swipe di HP) */
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 1.5rem;
+
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
 
-/* Memastikan kartu di dalam slider tidak menyusut dan lebarnya konsisten */
 .card-slider > * {
-    flex: 0 0 auto; /* Kartu tidak boleh membesar atau menyusut secara otomatis */
-    width: 320px; /* Kamu bisa menyesuaikan lebar kartu di sini */
-    scroll-snap-align: start; /* Titik henti kartu saat digeser (rata kiri) */
+    flex: 0 0 auto;
+    width: 320px;
+    scroll-snap-align: start;
 }
 
-/* (Opsional) Mempercantik tampilan Scrollbar agar tidak terlihat kaku */
 .card-slider::-webkit-scrollbar {
-    height: 8px; /* Ketebalan scrollbar */
+    height: 8px;
 }
 
 .card-slider::-webkit-scrollbar-track {
@@ -843,67 +817,56 @@ textarea.form-control {
     background: var(--brand-gray); 
 }
 
-/* =========================================
-   RADIO BUTTON BERGAYA TOMBOL (PILL/BOX)
-   ========================================= */
-/* Wadah untuk menyejajarkan tombol ke samping */
 .radio-btn-group {
     display: flex;
-    gap: 1rem; /* Jarak antar tombol */
+    gap: 1rem;
     width: 100%;
 }
 
-/* 1. Sembunyikan lingkaran radio bawaan browser secara penuh */
 .radio-btn-input {
     display: none; 
 }
 
-/* 2. Ubah label menjadi bentuk tombol bergaris luar (outline) */
 .radio-btn-label {
-    flex: 1; /* Membuat lebar tombol seimbang (dibagi rata) */
+    flex: 1;
     text-align: center;
     padding: 0.7rem 1rem;
-    border: 1.5px solid var(--white); /* Garis tepi warna putih */
-    border-radius: 8px; /* Sudut sedikit melengkung */
+    border: 1.5px solid var(--white);
+    border-radius: 8px;
     color: var(--white);
     cursor: pointer;
     font-size: 0.95rem;
     font-weight: 500;
-    transition: var(--transition); /* Animasi mulus bawaan kita */
+    transition: var(--transition);
 }
 
-/* 3. Efek saat label disorot (hover) */
 .radio-btn-label:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Efek terang transparan */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* 4. Ajaibnya CSS: Ubah gaya label HANYA jika input di sebelahnya sedang diceklis */
 .radio-btn-input:checked + .radio-btn-label {
-    background-color: var(--white); /* Latar belakang menjadi putih penuh */
-    color: var(--brand-dark); /* Warna teks menjadi gelap */
+    background-color: var(--white);
+    color: var(--brand-dark);
     font-weight: bold;
 }
 
-/* Wadah Menu untuk Desktop (Tetap sejajar menyamping) */
 .nav-menu-wrapper {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     flex-grow: 1;
-    justify-content: flex-end; /* Mendorong menu ke kanan */
+    justify-content: flex-end;
 }
 
-/* Gaya Dasar Tombol Hamburger (Disembunyikan di Desktop) */
 .hamburger {
     display: none; 
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    z-index: 101; /* Pastikan tombol selalu di lapisan paling atas */
+    z-index: 101;
 }
 
-/* Tiga garis pada tombol hamburger */
 .hamburger .bar {
     display: block;
     width: 25px;
@@ -915,33 +878,29 @@ textarea.form-control {
 }
 
 @media (max-width: 992px) {
-    /* Munculkan tombol hamburger */
     .hamburger {
         display: block; 
     }
 
-    /* Ubah wadah menu menjadi mode sidebar (tersembunyi di kiri) */
     .nav-menu-wrapper {
         position: absolute;
-        top: 100%; /* Mulai tepat di bawah batas header */
-        left: -100%; /* Sembunyikan sepenuhnya ke sisi kiri layar */
-        flex-direction: column; /* Ubah orientasi dari menyamping jadi menurun */
+        top: 100%;
+        left: -100%; 
+        flex-direction: column; 
         align-items: flex-start;
         background-color: var(--brand-dark);
         width: 100%;
         padding: 2rem;
-        transition: left 0.4s ease; /* Animasi bergeser mulus */
+        transition: left 0.4s ease;
         box-shadow: 0 10px 10px rgba(0,0,0,0.2);
     }
 
-    /* Saat kelas .active ditambahkan oleh JavaScript, menu akan muncul */
     .nav-menu-wrapper.active {
         left: 0; 
     }
 
-    /* Perbaikan susunan menu di mode HP */
     .nav-links {
-        flex-direction: column; /* Menu menurun ke bawah */
+        flex-direction: column;
         width: 100%;
         align-items: flex-start;
     }
@@ -951,20 +910,18 @@ textarea.form-control {
         margin-bottom: 0.5rem;
     }
 
-    /* Perbaikan agar kotak pencarian melebar penuh di HP */
     .search-container {
         width: 100%;
         margin-top: 1rem;
     }
 
-    /* ANIMASI HAMBURGER MENJADI TANDA "X" SAAT AKTIF */
     .hamburger.active .bar:nth-child(2) {
-        opacity: 0; /* Garis tengah menghilang */
+        opacity: 0;
     }
     .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg); /* Garis atas miring ke bawah */
+        transform: translateY(8px) rotate(45deg);
     }
     .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg); /* Garis bawah miring ke atas */
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
