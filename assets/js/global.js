@@ -67,12 +67,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener('click', function(e) {
-    const hamburgerBtn = e.target.closest('.hamburger');
-    
+document.addEventListener("click", function (e) {
+    const hamburgerBtn = e.target.closest(".hamburger");
+
     if (hamburgerBtn) {
-        const navWrapper = document.querySelector('.nav-menu-wrapper');
-        hamburgerBtn.classList.toggle('active');
-        navWrapper.classList.toggle('active');
+        const navWrapper = document.querySelector(".nav-menu-wrapper");
+        hamburgerBtn.classList.toggle("active");
+        navWrapper.classList.toggle("active");
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        if (!window.location.href.includes("/pages/")) {
+            const navLinks = document.querySelectorAll(".nav-links a");
+
+            navLinks.forEach((link) => {
+                let currentHref = link.getAttribute("href");
+
+                if (currentHref === "../index.html") {
+                    link.setAttribute("href", "index.html");
+                } else if (
+                    currentHref &&
+                    currentHref !== "#" &&
+                    !currentHref.includes("index.html")
+                ) {
+                    link.setAttribute("href", "pages/" + currentHref);
+                }
+            });
+        }
+    }, 300);
 });

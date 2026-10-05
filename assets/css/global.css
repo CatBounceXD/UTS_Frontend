@@ -540,7 +540,6 @@ footer.footer-modern {
     flex-grow: 1;
 }
 
-/* Icon Kaca besar */
 .search-btn {
     background: none;
     border: none;
@@ -923,5 +922,93 @@ textarea.form-control {
     }
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+.nav-extended {
+    position: relative; 
+}
+
+.dropdown {
+    position: static;
+}
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    padding: 2rem 3rem;
+    display: flex;
+    gap: 3rem;
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: var(--transition);
+    z-index: 100;
+    border-top: 3px solid var(--brand-peach);
+}
+
+.dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mega-menu-col {
+    flex: 1;
+}
+
+.mega-menu-col h4 {
+    color: var(--brand-dark);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--brand-cream);
+    padding-bottom: 0.5rem;
+}
+
+.mega-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-menu-list li {
+    margin-bottom: 0.8rem;
+}
+
+.mega-menu-list a {
+    color: var(--brand-gray) !important;
+    font-size: 0.9rem !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+    display: inline-block !important;
+}
+
+.mega-menu-list a:hover {
+    color: var(--brand-dark) !important;
+    transform: translateX(5px);
+}
+
+@media (max-width: 992px) {
+    .mega-menu {
+        position: relative;
+        top: 0;
+        box-shadow: none;
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1.5rem;
+        display: none;
+    }
+    
+    .dropdown:hover .mega-menu,
+    .dropdown:focus-within .mega-menu {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 }

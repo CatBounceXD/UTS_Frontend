@@ -4,39 +4,98 @@
             
             <!-- Area 1: Logo -->
             <div class="logo">
-                <h2><span style="color: var(--brand-peach);">Hospitals</span></h2>
+                <a href="../index.html" style="text-decoration: none;">
+                    <h2><span style="color: var(--brand-peach);">Hospitals</span></h2>
+                </a>
             </div>
     
-            <!-- TOMBOL HAMBURGER (Akan disembunyikan di layar laptop) -->
+            <!-- TOMBOL HAMBURGER -->
             <button class="hamburger" aria-label="Buka Menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
 
-            <!-- WADAH MENU (Membungkus link dan search agar mudah disembunyikan di HP) -->
+            <!-- WADAH MENU UTAMA -->
             <div class="nav-menu-wrapper">
-                <!-- Area 2: Menu Navigasi Utama -->
                 <ul class="nav-links">
-                    <li><a href="cari-dokter.html" target="_blank">Cari Dokter</a></li>
-                    <li><a href="layanan-kesehatan.html" target="_blank">Layanan Kesehatan <span class="arrow">&#9662;</span></a></li>
-                    <li><a href="second-opinion.html" target="_blank">Second Opinion</a></li>
-                    <li><a href="pusat-layanan-unggulan.html" target="_blank">Pusat Layanan Unggulan</a></li>
-                    <li><a href="spesialis.html" target="_blank">Spesialis</a></li>
-                    <li><a href="informasi.html" target="_blank">Informasi <span class="arrow">&#9662;</span></a></li>
+                    
+                    <!-- MENU 1: CARI DOKTER -->
+                    <li><a href="cari-dokter.html">Cari Dokter</a></li>
+                    
+                    <!-- MENU 2: LAYANAN KESEHATAN -->
+                    <li class="dropdown">
+                        <a href="#">Layanan Kesehatan <span class="arrow">&#9662;</span></a>
+                        <div class="mega-menu" style="padding: 1.5rem 3rem;">
+                            <div class="mega-menu-col">
+                                <h4>Medical Check Up</h4>
+                                <ul class="mega-menu-list">
+                                    <li><a href="medical-checkup.html">Semua Paket Medical Check Up</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-col">
+                                <h4>Layanan Lainnya</h4>
+                                <ul class="mega-menu-list">
+                                    <li><a href="buat-janji.html">Buat Janji / Telekonsultasi</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- MENU 3: SECOND OPINION -->
+                    <li><a href="secondOpinion.html">Second Opinion</a></li>
+                    
+                    <!-- MENU 4: PUSAT LAYANAN UNGGULAN -->
+                    <li class="dropdown">
+                        <a href="PusatLayananUnggulan.html">Pusat Layanan Unggulan <span class="arrow">&#9662;</span></a>
+                        <div class="mega-menu" style="padding: 1.5rem 3rem;">
+                            <div class="mega-menu-col">
+                                <h4>Pusat Spesialisasi</h4>
+                                <ul class="mega-menu-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <li><a href="jantung.html">Jantung & Pembuluh Darah</a></li>
+                                    <li><a href="digestif.html">Digestif</a></li>
+                                    <li><a href="ginjal.html">Ginjal</a></li>
+                                    <li><a href="saraf.html">Saraf & Bedah Saraf</a></li>
+                                    <li><a href="ortopedi.html">Ortopedi</a></li>
+                                    <li><a href="onkologi.html">Onkologi (Kanker)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- MENU 5: INFORMASI -->
+                    <li class="dropdown">
+                        <a href="#">Informasi <span class="arrow">&#9662;</span></a>
+                        <div class="mega-menu" style="padding: 1.5rem 3rem;">
+                            <div class="mega-menu-col">
+                                <h4>Pusat Pasien</h4>
+                                <ul class="mega-menu-list">
+                                    <li><a href="rumahsakitkami.html">Rumah Sakit Kami</a></li>
+                                    <li><a href="klinik.html">Klinik Kami</a></li>
+                                    <li><a href="ceritapasien.html">Kisah Pasien</a></li>
+                                    <li><a href="hubungikami.html">Hubungi Kami</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-col">
+                                <h4>Kampanye Kesehatan Terkini</h4>
+                                <ul class="mega-menu-list">
+                                    <li><a href="stroke-ready.html">Stroke Ready Hospitals</a></li>
+                                    <li><a href="kalahkanker.html">#KalahKanker</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
                 </ul>
         
-                <!-- Area 3: Kolom Pencarian -->
+                <!-- Area Kolom Pencarian -->
                 <div class="search-container">
                     <input type="text" class="search-input" placeholder="Cari di Hospitals">
                     <button class="search-btn" aria-label="Cari">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#2e7d32" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
+                        <span style="font-size: 1.2rem; filter: grayscale(100%);">🔍</span>
                     </button>
                 </div>
             </div>
-    
         </nav>
     </header>
 </div>
